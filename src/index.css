@@ -2,87 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ====================================================
+   80 Textos – Quiz de Inglês — Design System
+   Friendly, Brazilian-flavored language-learning app.
+   All colors are HSL.
+   ==================================================== */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base canvas — soft, warm off-white */
+    --background: 40 30% 98%;
+    --foreground: 222 35% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 35% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 35% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary — emerald-green: confidence + correctness */
+    --primary: 158 64% 38%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 158 70% 94%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary — soft slate for surfaces */
+    --secondary: 220 30% 96%;
+    --secondary-foreground: 222 35% 14%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 25% 95%;
+    --muted-foreground: 220 12% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent — indigo: knowledge / focus */
+    --accent: 234 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 234 100% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive / wrong answers — coral */
+    --destructive: 0 78% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 0 100% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Success duplicate (used for feedback) */
+    --success: 158 64% 38%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 158 70% 94%;
 
-    --radius: 0.5rem;
+    /* Warning — amber for streak / hints */
+    --warning: 38 95% 52%;
+    --warning-foreground: 30 50% 14%;
+    --warning-soft: 45 100% 94%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 158 64% 38%;
+
+    --radius: 0.9rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 42%), hsl(180 64% 42%));
+    --gradient-accent: linear-gradient(135deg, hsl(234 80% 60%), hsl(265 80% 62%));
+    --gradient-warm: linear-gradient(135deg, hsl(28 95% 60%), hsl(0 78% 62%));
+
+    /* Shadows */
+    --shadow-card: 0 1px 2px hsl(220 20% 14% / 0.04), 0 4px 16px hsl(220 20% 14% / 0.06);
+    --shadow-pop: 0 8px 28px hsl(158 64% 30% / 0.18);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222 30% 8%;
+    --foreground: 210 30% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 28% 12%;
+    --card-foreground: 210 30% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 28% 12%;
+    --popover-foreground: 210 30% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 158 64% 50%;
+    --primary-foreground: 222 35% 10%;
+    --primary-soft: 158 50% 18%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 222 22% 18%;
+    --secondary-foreground: 210 30% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 22% 18%;
+    --muted-foreground: 220 12% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 234 80% 70%;
+    --accent-foreground: 222 35% 10%;
+    --accent-soft: 234 50% 22%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 78% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 0 50% 22%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --success: 158 64% 50%;
+    --success-foreground: 222 35% 10%;
+    --success-soft: 158 50% 18%;
+
+    --warning: 38 95% 60%;
+    --warning-foreground: 30 50% 10%;
+    --warning-soft: 38 50% 22%;
+
+    --border: 222 22% 22%;
+    --input: 222 22% 22%;
+    --ring: 158 64% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 42%), hsl(190 64% 42%));
+    --gradient-accent: linear-gradient(135deg, hsl(234 80% 60%), hsl(265 80% 62%));
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.3), 0 4px 16px hsl(0 0% 0% / 0.35);
+    --shadow-pop: 0 8px 28px hsl(158 64% 20% / 0.5);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -98,8 +137,40 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
-  body {
-    @apply bg-background text-foreground;
+  html, body, #root {
+    @apply h-full;
   }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+@layer components {
+  .gradient-primary { background-image: var(--gradient-primary); }
+  .gradient-accent { background-image: var(--gradient-accent); }
+  .gradient-warm { background-image: var(--gradient-warm); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-pop { box-shadow: var(--shadow-pop); }
+}
+
+@layer utilities {
+  .animate-pop-in { animation: pop-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .animate-shake { animation: shake 0.4s ease-in-out; }
+  .animate-slide-up { animation: slide-up 0.3s ease-out; }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+@keyframes slide-up {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
