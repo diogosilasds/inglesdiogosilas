@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SpeakButton } from "@/features/audio/SpeakButton";
 import { normalize } from "@/utils/stringUtils";
 import type { GapFillQ } from "../engine/quizGenerator";
 
@@ -31,10 +30,7 @@ export function GapFill({ question, disabled, onAnswer }: Props) {
         <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Complete a lacuna
         </div>
-        <div className="flex items-start gap-3">
-          <p className="text-2xl font-semibold leading-snug">{question.template}</p>
-          <SpeakButton text={question.pair.en} />
-        </div>
+        <p className="text-2xl font-semibold leading-snug">{question.template}</p>
         <p className="mt-3 text-sm italic text-muted-foreground">Dica (PT): {question.hintPt}</p>
       </div>
       <div className="flex gap-2">

@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Play, Volume2 } from "lucide-react";
+import { ArrowLeft, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SpeakButton } from "@/features/audio/SpeakButton";
-import { useTTS } from "@/features/audio/useTTS";
 import { TEXTS } from "@/data/texts";
 import { useProgress } from "@/features/progress/progressStore";
 
@@ -12,7 +10,6 @@ export default function TextDetail() {
   const navigate = useNavigate();
   const text = useMemo(() => TEXTS.find((t) => String(t.id) === String(id)), [id]);
   const { ensureUnlocked, texts } = useProgress();
-  const { speak, rate, setRate, supported, hasEnglishVoice } = useTTS();
   const [columnsView, setColumnsView] = useState(true);
 
   useEffect(() => {
@@ -44,30 +41,7 @@ export default function TextDetail() {
       <h1 className="text-3xl font-bold leading-tight">{text.titleEn}</h1>
       {text.titlePt && <p className="text-muted-foreground">{text.titlePt}</p>}
 
-      {supported && !hasEnglishVoice && (
-        <div className="mt-3 rounded-xl bg-warning-soft p-3 text-xs text-warning-foreground">
-          🔇 Não foi possível carregar a voz em inglês do navegador. As questões de áudio ficarão indisponíveis.
-        </div>
-      )}
-
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <Button
-          onClick={() => speak(text.fullEn || text.pairs.map((p) => p.en).join(" "))}
-          className="gap-2"
-        >
-          <Volume2 className="h-4 w-4" /> Ouvir tudo
-        </Button>
-        <div className="flex items-center gap-1 rounded-lg bg-secondary p-1 text-xs">
-          {[0.75, 1, 1.25].map((r) => (
-            <button
-              key={r}
-              onClick={() => setRate(r)}
-              className={`rounded-md px-2 py-1 ${rate === r ? "bg-card text-foreground shadow-card" : "text-muted-foreground"}`}
-            >
-              {r}x
-            </button>
-          ))}
-        </div>
+      <div className="mt-4 flex justify-center">
         <Button
           size="sm"
           variant="outline"
@@ -92,10 +66,7 @@ export default function TextDetail() {
         <div className="mt-6 space-y-2">
           {text.pairs.map((pair, i) => (
             <div key={i} className="rounded-xl bg-card p-3 shadow-card">
-              <div className="flex items-start justify-between gap-2">
-                <p className="font-medium">{pair.en}</p>
-                <SpeakButton text={pair.en} />
-              </div>
+              <p className="font-medium">{pair.en}</p>
               <p className="text-sm text-muted-foreground">{pair.pt}</p>
               {pair.note && (
                 <p className="mt-1 border-t border-border pt-1 text-xs italic text-muted-foreground">

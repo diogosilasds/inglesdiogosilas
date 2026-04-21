@@ -1,15 +1,13 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { useTTS } from "@/features/audio/useTTS";
 import { useProgress } from "@/features/progress/progressStore";
 import { MultipleChoice } from "./components/MultipleChoice";
 import { GapFill } from "./components/GapFill";
 import { TranslateWrite } from "./components/TranslateWrite";
 import { WordOrder } from "./components/WordOrder";
-import { ListenType } from "./components/ListenType";
 import { FeedbackPanel } from "./components/FeedbackPanel";
 import type { Question } from "./engine/quizGenerator";
 
@@ -23,12 +21,11 @@ interface QuizSessionProps {
 interface AnswerLog {
   questionId: string;
   correct: boolean;
-  pairKey: string; // English sentence key for mistakes
+  pairKey: string;
 }
 
 export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessionProps) {
   const navigate = useNavigate();
-  const { stop } = useTTS();
   const { recordSession, recordSingle } = useProgress();
   const [index, setIndex] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -49,7 +46,6 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
         { questionId: current.id, correct, pairKey: current.pair.en },
       ]);
       if (textId === undefined) {
-        // random session: record per-question for global stats only
         recordSingle(correct);
       }
     },
@@ -57,10 +53,8 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
   );
 
   const next = useCallback(() => {
-    stop();
     setShowFeedback(false);
     if (index + 1 >= total) {
-      const correct = log.filter((l) => l.correct).length + (lastCorrect ? 0 : 0); // log already includes last
       const finalCorrect = log.filter((l) => l.correct).length;
       if (textId !== undefined) {
         const mistakes = log.filter((l) => !l.correct).map((l) => l.pairKey);
@@ -72,7 +66,7 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
     } else {
       setIndex((i) => i + 1);
     }
-  }, [index, total, log, lastCorrect, recordSession, recordSingle, textId, nextTextId, stop]);
+  }, [index, total, log, recordSession, textId, nextTextId]);
 
   if (finished) {
     const ratio = finished.total ? finished.correct / finished.total : 0;
@@ -135,7 +129,7 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
     <div className="min-h-dvh bg-background pb-32">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3">
-          <Button variant="ghost" size="icon" onClick={() => { stop(); onExit(); }} aria-label="Sair">
+          <Button variant="ghost" size="icon" onClick={onExit} aria-label="Sair">
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <Progress value={((index + (showFeedback ? 1 : 0)) / total) * 100} className="h-3" />
@@ -158,9 +152,6 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
           )}
           {current.kind === "WORD_ORDER" && (
             <WordOrder question={current} disabled={showFeedback} onAnswer={(c) => handleAnswer(c)} />
-          )}
-          {current.kind === "LISTEN_TYPE" && (
-            <ListenType question={current} disabled={showFeedback} onAnswer={(c) => handleAnswer(c)} />
           )}
         </div>
       </main>

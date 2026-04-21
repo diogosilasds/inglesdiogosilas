@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { TEXTS } from "@/data/texts";
 import { generateRandom, type QuestionKind } from "@/features/quiz/engine/quizGenerator";
 import { QuizRunner } from "@/features/quiz/QuizRunner";
-import { useTTS } from "@/features/audio/useTTS";
 import { cn } from "@/lib/utils";
 
 const KINDS: { id: QuestionKind; label: string }[] = [
@@ -12,18 +11,16 @@ const KINDS: { id: QuestionKind; label: string }[] = [
   { id: "GAP_FILL", label: "Lacuna" },
   { id: "TRANSLATE_WRITE", label: "Traduzir" },
   { id: "WORD_ORDER", label: "Ordenar palavras" },
-  { id: "LISTEN_TYPE", label: "Listen & type" },
 ];
 
 export default function RandomQuiz() {
   const navigate = useNavigate();
-  const { hasEnglishVoice, supported } = useTTS();
   const [started, setStarted] = useState(false);
   const [selected, setSelected] = useState<QuestionKind[]>([]);
 
   const questions = useMemo(
-    () => (started ? generateRandom(TEXTS, { audioAvailable: supported && hasEnglishVoice, kinds: selected.length ? selected : undefined }) : []),
-    [started, selected, supported, hasEnglishVoice],
+    () => (started ? generateRandom(TEXTS, { kinds: selected.length ? selected : undefined }) : []),
+    [started, selected],
   );
 
   if (started) {

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { SpeakButton } from "@/features/audio/SpeakButton";
 import { normalize } from "@/utils/stringUtils";
 import { cn } from "@/lib/utils";
 import type { WordOrderQ } from "../engine/quizGenerator";
@@ -84,11 +82,6 @@ export function WordOrder({ question, disabled, onAnswer }: Props) {
         ))}
       </div>
 
-      {disabled && (
-        <div className="flex items-center justify-end gap-2">
-          <SpeakButton text={question.fullEn} variant="outline" size="sm" label="Ouvir frase" />
-        </div>
-      )}
     </div>
   );
 }

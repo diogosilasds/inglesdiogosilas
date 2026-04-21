@@ -6,8 +6,7 @@ export type QuestionKind =
   | "MULTIPLE_CHOICE"
   | "GAP_FILL"
   | "TRANSLATE_WRITE"
-  | "WORD_ORDER"
-  | "LISTEN_TYPE";
+  | "WORD_ORDER";
 
 export interface BaseQuestion {
   id: string;
@@ -45,14 +44,7 @@ export interface WordOrderQ extends BaseQuestion {
   fullEn: string;
 }
 
-export interface ListenTypeQ extends BaseQuestion {
-  kind: "LISTEN_TYPE";
-  audioText: string; // EN
-  expected: string;
-  hintPt: string;
-}
-
-export type Question = MultipleChoiceQ | GapFillQ | TranslateWriteQ | WordOrderQ | ListenTypeQ;
+export type Question = MultipleChoiceQ | GapFillQ | TranslateWriteQ | WordOrderQ;
 
 const STOP_WORDS = new Set([
   "the","a","an","is","am","are","was","were","be","been","being",
@@ -63,7 +55,6 @@ const STOP_WORDS = new Set([
 function pickKeyWord(en: string): string | null {
   const tokens = en.replace(/[.,!?;:"“”'’()\[\]\-–—]/g, "").split(/\s+/).filter(Boolean);
   if (!tokens.length) return null;
-  // Prefer the longest non-stopword
   const candidates = tokens
     .filter((w) => !STOP_WORDS.has(w.toLowerCase()) && w.length >= 3)
     .sort((a, b) => b.length - a.length);
@@ -75,7 +66,6 @@ function makeMC(pair: SentencePair, distractorPool: SentencePair[], textId: numb
     distractorPool.filter((p) => p.pt !== pair.pt),
     3,
   ).map((p) => p.pt);
-  // If we don't have 3 unique distractors, fill with shuffled fragments
   while (distractors.length < 3) distractors.push(`(opção alternativa ${distractors.length + 1})`);
   const options = shuffle([pair.pt, ...distractors]);
   return {
@@ -93,7 +83,6 @@ function makeMC(pair: SentencePair, distractorPool: SentencePair[], textId: numb
 function makeGap(pair: SentencePair, textId: number, title: string): GapFillQ | null {
   const word = pickKeyWord(pair.en);
   if (!word) return null;
-  // Replace first standalone occurrence with blank, preserve punctuation
   const re = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}\\b`);
   if (!re.test(pair.en)) return null;
   const template = pair.en.replace(re, "_____");
@@ -138,19 +127,6 @@ function makeOrder(pair: SentencePair, textId: number, title: string): WordOrder
   };
 }
 
-function makeListen(pair: SentencePair, textId: number, title: string): ListenTypeQ {
-  return {
-    id: cryptoRandomId(),
-    kind: "LISTEN_TYPE",
-    pair,
-    textId,
-    textTitle: title,
-    audioText: pair.en,
-    expected: pair.en,
-    hintPt: pair.pt,
-  };
-}
-
 function cryptoRandomId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
   return Math.random().toString(36).slice(2);
@@ -159,7 +135,6 @@ function cryptoRandomId(): string {
 export interface GenerateOptions {
   size?: number;
   kinds?: QuestionKind[];
-  audioAvailable?: boolean;
 }
 
 const ALL_KINDS: QuestionKind[] = [
@@ -167,14 +142,24 @@ const ALL_KINDS: QuestionKind[] = [
   "GAP_FILL",
   "TRANSLATE_WRITE",
   "WORD_ORDER",
-  "LISTEN_TYPE",
 ];
+
+function buildOne(kind: QuestionKind, pair: SentencePair, pool: SentencePair[], text: TextEntry): Question | null {
+  switch (kind) {
+    case "MULTIPLE_CHOICE":
+      return makeMC(pair, pool, text.id, text.titleEn);
+    case "GAP_FILL":
+      return makeGap(pair, text.id, text.titleEn) || makeMC(pair, pool, text.id, text.titleEn);
+    case "TRANSLATE_WRITE":
+      return makeWrite(pair, text.id, text.titleEn);
+    case "WORD_ORDER":
+      return makeOrder(pair, text.id, text.titleEn) || makeMC(pair, pool, text.id, text.titleEn);
+  }
+}
 
 export function generateForText(text: TextEntry, opts: GenerateOptions = {}): Question[] {
   const size = opts.size ?? QUESTIONS_PER_SESSION;
-  const audio = opts.audioAvailable ?? true;
-  let kinds = opts.kinds && opts.kinds.length ? opts.kinds : ALL_KINDS;
-  if (!audio) kinds = kinds.filter((k) => k !== "LISTEN_TYPE");
+  const kinds = opts.kinds && opts.kinds.length ? opts.kinds : ALL_KINDS;
 
   const usable = text.pairs.filter((p) => {
     const enLen = p.en.replace(/\s+/g, " ").trim().length;
@@ -187,24 +172,7 @@ export function generateForText(text: TextEntry, opts: GenerateOptions = {}): Qu
   const questions: Question[] = [];
   seeds.forEach((pair, i) => {
     const kind = kinds[i % kinds.length];
-    let q: Question | null = null;
-    switch (kind) {
-      case "MULTIPLE_CHOICE":
-        q = makeMC(pair, usable, text.id, text.titleEn);
-        break;
-      case "GAP_FILL":
-        q = makeGap(pair, text.id, text.titleEn) || makeMC(pair, usable, text.id, text.titleEn);
-        break;
-      case "TRANSLATE_WRITE":
-        q = makeWrite(pair, text.id, text.titleEn);
-        break;
-      case "WORD_ORDER":
-        q = makeOrder(pair, text.id, text.titleEn) || makeMC(pair, usable, text.id, text.titleEn);
-        break;
-      case "LISTEN_TYPE":
-        q = makeListen(pair, text.id, text.titleEn);
-        break;
-    }
+    const q = buildOne(kind, pair, usable, text);
     if (q) questions.push(q);
   });
   return questions;
@@ -212,9 +180,7 @@ export function generateForText(text: TextEntry, opts: GenerateOptions = {}): Qu
 
 export function generateRandom(texts: TextEntry[], opts: GenerateOptions = {}): Question[] {
   const size = opts.size ?? QUESTIONS_PER_SESSION;
-  const audio = opts.audioAvailable ?? true;
-  let kinds = opts.kinds && opts.kinds.length ? opts.kinds : ALL_KINDS;
-  if (!audio) kinds = kinds.filter((k) => k !== "LISTEN_TYPE");
+  const kinds = opts.kinds && opts.kinds.length ? opts.kinds : ALL_KINDS;
 
   const allPairs: { text: TextEntry; pair: SentencePair }[] = [];
   texts.forEach((t) => {
@@ -229,25 +195,7 @@ export function generateRandom(texts: TextEntry[], opts: GenerateOptions = {}): 
   const questions: Question[] = [];
   seeds.forEach(({ text, pair }, i) => {
     const kind = kinds[i % kinds.length];
-    let q: Question | null = null;
-    const sameTextPool = text.pairs;
-    switch (kind) {
-      case "MULTIPLE_CHOICE":
-        q = makeMC(pair, sameTextPool, text.id, text.titleEn);
-        break;
-      case "GAP_FILL":
-        q = makeGap(pair, text.id, text.titleEn) || makeMC(pair, sameTextPool, text.id, text.titleEn);
-        break;
-      case "TRANSLATE_WRITE":
-        q = makeWrite(pair, text.id, text.titleEn);
-        break;
-      case "WORD_ORDER":
-        q = makeOrder(pair, text.id, text.titleEn) || makeMC(pair, sameTextPool, text.id, text.titleEn);
-        break;
-      case "LISTEN_TYPE":
-        q = makeListen(pair, text.id, text.titleEn);
-        break;
-    }
+    const q = buildOne(kind, pair, text.pairs, text);
     if (q) questions.push(q);
   });
   return questions;
@@ -263,11 +211,9 @@ export function checkQuestion(q: Question, answer: unknown): { correct: boolean;
       const a = String(answer ?? "");
       return { correct: normalize(a) === normalize(q.answer), expected: q.answer };
     }
-    case "TRANSLATE_WRITE":
-    case "LISTEN_TYPE": {
-      // handled by component (uses fuzzy)
+    case "TRANSLATE_WRITE": {
       const a = String(answer ?? "");
-      return { correct: normalize(a) === normalize(q.kind === "TRANSLATE_WRITE" ? q.expected : q.expected), expected: q.kind === "TRANSLATE_WRITE" ? q.expected : q.expected };
+      return { correct: normalize(a) === normalize(q.expected), expected: q.expected };
     }
     case "WORD_ORDER": {
       const arr = Array.isArray(answer) ? (answer as string[]) : [];
