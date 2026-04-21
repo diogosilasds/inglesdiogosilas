@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { BookOpen, Home, Map, Shuffle, BarChart3 } from "lucide-react";
+import { BookOpen, Home, Map, Shuffle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Footer } from "./Footer";
 
@@ -8,7 +8,6 @@ const items = [
   { to: "/biblioteca", label: "Textos", icon: BookOpen },
   { to: "/trilha", label: "Trilha", icon: Map },
   { to: "/quiz-aleatorio", label: "Treino", icon: Shuffle },
-  { to: "/progresso", label: "Progresso", icon: BarChart3 },
 ];
 
 export function AppLayout() {

@@ -35,6 +35,7 @@ export interface ProgressState {
     nextTextId?: number,
   ) => { earnedXp: number; newStars: number; unlockedNext: boolean };
   recordSingle: (correct: boolean) => void;
+  toggleCompleted: (textId: number) => void;
   reset: () => void;
 }
 
@@ -156,6 +157,27 @@ export const useProgress = create<ProgressState>()(
           },
         });
         return { earnedXp, newStars: stars, unlockedNext };
+      },
+      toggleCompleted: (textId) => {
+        const { texts } = get();
+        const prev: TextProgress = texts[textId] ?? {
+          status: "UNLOCKED",
+          stars: 0,
+          highScore: 0,
+          attempts: 0,
+          mistakes: {},
+        };
+        const isDone = prev.status === "COMPLETED";
+        set({
+          texts: {
+            ...texts,
+            [textId]: {
+              ...prev,
+              status: isDone ? "UNLOCKED" : "COMPLETED",
+              stars: isDone ? prev.stars : (Math.max(prev.stars, 1) as 0 | 1 | 2 | 3),
+            },
+          },
+        });
       },
       reset: () =>
         set({

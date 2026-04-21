@@ -1,61 +1,89 @@
 import { Link } from "react-router-dom";
-import { Lock, Star, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Circle, Play, Star } from "lucide-react";
 import { TEXTS } from "@/data/texts";
 import { useProgress } from "@/features/progress/progressStore";
 import { cn } from "@/lib/utils";
 
 export default function Trail() {
-  const { texts } = useProgress();
+  const { texts, toggleCompleted } = useProgress();
+  const completed = TEXTS.filter((t) => texts[t.id]?.status === "COMPLETED").length;
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-10 pt-6 sm:pt-24">
       <h1 className="mb-1 text-2xl font-bold">Trilha</h1>
-      <p className="mb-6 text-sm text-muted-foreground">
-        Conclua cada texto com ≥70% para desbloquear o próximo.
+      <p className="mb-4 text-sm text-muted-foreground">
+        Todos os 80 textos estão liberados. Marque cada um como concluído quando terminar.
       </p>
 
-      <div className="space-y-3">
-        {TEXTS.map((t, i) => {
+      <div className="mb-6 flex items-center gap-3 rounded-2xl border border-border bg-card/70 p-3 text-sm backdrop-blur-md">
+        <div className="flex-1">
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">Progresso</div>
+          <div className="font-semibold tabular-nums">
+            {completed} / {TEXTS.length} concluídos
+          </div>
+        </div>
+        <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
+          <div
+            className="h-full gradient-primary transition-all"
+            style={{ width: `${(completed / TEXTS.length) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        {TEXTS.map((t) => {
           const p = texts[t.id];
-          // First text is always available; otherwise need previous COMPLETED or already unlocked
-          const prev = i > 0 ? texts[TEXTS[i - 1].id] : undefined;
-          const unlocked = i === 0 || !!p || prev?.status === "COMPLETED";
           const done = p?.status === "COMPLETED";
-          const align = i % 2 === 0 ? "self-start" : "self-end";
+          const num = String(t.id).padStart(2, "0");
           return (
-            <div key={t.id} className={cn("flex w-full", i % 2 === 0 ? "justify-start" : "justify-end")}>
-              <Link
-                to={unlocked ? `/texto/${t.id}` : "#"}
-                onClick={(e) => !unlocked && e.preventDefault()}
+            <div
+              key={t.id}
+              className={cn(
+                "flex items-center gap-3 rounded-2xl border p-3 transition-all",
+                done
+                  ? "border-success/60 bg-success-soft/40 shadow-[0_0_24px_hsl(var(--success)/0.15)]"
+                  : "border-border bg-card/70 backdrop-blur-md hover:border-primary/60",
+              )}
+            >
+              <button
+                type="button"
+                onClick={() => toggleCompleted(t.id)}
+                aria-label={done ? "Desmarcar como concluído" : "Marcar como concluído"}
+                aria-pressed={done}
                 className={cn(
-                  "flex w-full max-w-md items-center gap-3 rounded-2xl border-2 p-4 shadow-card transition",
-                  align,
-                  done && "border-success bg-success-soft",
-                  !done && unlocked && "border-primary bg-card hover:shadow-pop",
-                  !unlocked && "cursor-not-allowed border-border bg-muted opacity-60",
+                  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition",
+                  done
+                    ? "border-success bg-success text-success-foreground shadow-[0_0_16px_hsl(var(--success)/0.5)]"
+                    : "border-border bg-background text-muted-foreground hover:border-primary hover:text-primary",
                 )}
               >
-                <div
-                  className={cn(
-                    "flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold",
-                    done && "bg-success text-success-foreground",
-                    !done && unlocked && "gradient-primary text-primary-foreground",
-                    !unlocked && "bg-muted-foreground/20 text-muted-foreground",
-                  )}
-                >
-                  {!unlocked ? <Lock className="h-5 w-5" /> : done ? <CheckCircle2 className="h-5 w-5" /> : String(t.id).padStart(2, "0")}
+                {done ? <CheckCircle2 className="h-5 w-5" /> : <Circle className="h-5 w-5" />}
+              </button>
+
+              <Link to={`/texto/${t.id}`} className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-muted-foreground">{num}</span>
+                  <span className={cn("truncate font-semibold", done && "line-through opacity-70")}>
+                    {t.titleEn}
+                  </span>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <div className="truncate font-semibold">{t.titleEn}</div>
-                  <div className="truncate text-xs text-muted-foreground">{t.titlePt || "—"}</div>
+                <div className="truncate text-xs text-muted-foreground">{t.titlePt || "—"}</div>
+              </Link>
+
+              {p && p.stars > 0 && (
+                <div className="hidden items-center text-warning sm:flex">
+                  {Array.from({ length: 3 }).map((_, k) => (
+                    <Star key={k} className={cn("h-4 w-4", k < p.stars ? "fill-warning" : "opacity-30")} />
+                  ))}
                 </div>
-                {p && p.stars > 0 && (
-                  <div className="flex items-center text-warning">
-                    {Array.from({ length: 3 }).map((_, k) => (
-                      <Star key={k} className={cn("h-4 w-4", k < p.stars ? "fill-warning" : "opacity-30")} />
-                    ))}
-                  </div>
-                )}
+              )}
+
+              <Link
+                to={`/quiz/${t.id}`}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/50 bg-primary/10 text-primary transition hover:bg-primary hover:text-primary-foreground"
+                aria-label="Iniciar quiz"
+              >
+                <Play className="h-4 w-4 fill-current" />
               </Link>
             </div>
           );
