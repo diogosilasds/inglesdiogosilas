@@ -5880,5 +5880,1126 @@ export const TEXTS: TextEntry[] = [
     "id": 67,
     "slug": "changing-jobs",
     "url": "https://www.mairovergara.com/textos-com-audio-067-changing-jobs/"
+  },
+  {
+    "titleEn": "Going home for Thanksgiving",
+    "titlePt": "Indo para casa para o Dia de Ação de Graças",
+    "fullEn": "Peter, I’m thrilled that you are bringing Jane home for Thanksgiving. When do you arrive? What time do I pick you up at the airport? Is she a heavy coffee drinker like you? How much coffee do I have to prepare? How long are you staying? What kind of food does Jane eat? Is she also a vegetarian? How many pies should I bake? And what do you think I should wear? Love, mom.",
+    "fullPt": "Peter, eu estou muito feliz que você vai trazer a Jane para casa para o Dia de Ação de Graças. Quando vocês chegam? A que horas eu busco vocês no aeroporto? Ela bebe muito café assim como você? Quanto café eu devo preparar? Quanto tempo vocês vão ficar? Que tipo de comida a Jane come? Ela também é vegetariana? Quantas tortas eu devo assar? E o que você acha que eu devo vestir? Com amor, mãe.",
+    "pairs": [
+      {
+        "en": "Peter, I’m thrilled that",
+        "pt": "Peter, eu estou muito feliz que",
+        "note": ""
+      },
+      {
+        "en": "you are bringing Jane home for Thanksgiving.",
+        "pt": "você vai trazer a Jane para casa para o Dia de Ação de Graças.",
+        "note": "lembrem-se de que podemos usar a estrutura Sujeito + verbo to be + verbo com ING para falarmos sobre coisas que acontecerão em um futuro próximo. Por exemplo: I am going to Paris next week = Eu vou a Paris na próxima semana."
+      },
+      {
+        "en": "When do you arrive?",
+        "pt": "Quando vocês chegam?",
+        "note": "YOU pode ser tanto você como vocês. Neste caso, refere-se ao Peter e à Jane."
+      },
+      {
+        "en": "What time do I pick you up at the airport?",
+        "pt": "A que horas eu busco vocês no aeroporto?",
+        "note": "pick up é um phrasal verb que tem o sentido de ir buscar alguém. I am picking up the kids from school today = Vou buscar as crianças na escola hoje."
+      },
+      {
+        "en": "Is she a heavy coffee drinker like you?",
+        "pt": "Ela bebe muito café assim como você?",
+        "note": "um heavy drinker é alguém que bebe muito. Geralmente refere-se a álcool, mas podemos usar para falar de outras bebidas também, como aqui."
+      },
+      {
+        "en": "How much coffee do I have to prepare?",
+        "pt": "Quanto café eu devo preparar?",
+        "note": ""
+      },
+      {
+        "en": "How long are you staying?",
+        "pt": "Quanto tempo vocês vão ficar?",
+        "note": ""
+      },
+      {
+        "en": "What kind of food does Jane eat?",
+        "pt": "Que tipo de comida a Jane come?",
+        "note": ""
+      },
+      {
+        "en": "Is she also a vegetarian?",
+        "pt": "Ela também é vegetariana?",
+        "note": ""
+      },
+      {
+        "en": "How many pies should I bake?",
+        "pt": "Quantas tortas eu devo assar?",
+        "note": "com o verbo SHOULD, NÃO precisamos usar um auxiliar para fazer perguntas."
+      },
+      {
+        "en": "And what do you think I should wear?",
+        "pt": "E o que você acha que eu devo vestir?",
+        "note": ""
+      },
+      {
+        "en": "Love, mom.",
+        "pt": "Com amor, mãe.",
+        "note": ""
+      }
+    ],
+    "focus": "O foco do texto são perguntas abertas (perguntas com as chamadas question words, ou seja, pronomes interrogativos).",
+    "id": 68,
+    "slug": "going-home-for-thanksgiving",
+    "url": "https://www.mairovergara.com/textos-com-audio-068-going-home-for-thanksgiving/"
+  },
+  {
+    "titleEn": "What do you think?",
+    "titlePt": "O que você acha?",
+    "fullEn": "John, I’m thinking about hiring that carpet cleaning company to clean our carpets. With the baby and the dogs, I believe some heavy, deep cleaning might be a good idea. What do you think? I am writing them an e-mail with some questions: How much does it cost? How long does it take? What products do we need to buy?",
+    "fullPt": "John, eu estou pensando em contratar aquela empresa de limpeza de carpetes para limpar nossos carpetes. Com o bebê e os cachorros, eu acredito que uma limpeza pesada e profunda pode ser uma boa ideia. O que você acha? Eu estou escrevendo um e-mail para eles com algumas perguntas: Quanto custa? Quanto tempo leva? Que produtos nós precisamos comprar?",
+    "pairs": [
+      {
+        "en": "John, I’m thinking about hiring",
+        "pt": "John, eu estou pensando em contratar",
+        "note": "para falar “estou pensando em…”, usamos a estrutura “I’m thinking about…”. Se usarmos um verbo logo depois, precisamos acrescentar ING. Isso porque, sempre que um verbo vem logo após uma preposição (e about é uma preposição), precisamos adicionar o ING: I’m thinking about moving to Italy = Estou pensando em me mudar para a Itália."
+      },
+      {
+        "en": "that carpet cleaning company",
+        "pt": "aquela empresa de limpeza de carpetes",
+        "note": ""
+      },
+      {
+        "en": "to clean our carpets.",
+        "pt": "para limpar nossos carpetes.",
+        "note": ""
+      },
+      {
+        "en": "With the baby and the dogs,",
+        "pt": "Com o bebê e os cachorros,",
+        "note": ""
+      },
+      {
+        "en": "I believe some heavy, deep cleaning",
+        "pt": "eu acredito que uma limpeza pesada e profunda",
+        "note": "o ING ao fim do verbo pode também transformá-lo em um substantivo. To clean é limpar. Cleaning pode ser limpando, em uma frase como I am cleaning the house now = Eu estou limpando a casa agora. Cleaning também pode ser limpeza, como na frase acima. Outro exemplo: Let’s pay someone to do the cleaning = Vamos pagar alguém para fazer a limpeza. Outra coisa: cleaning é um substantivo incontável, por isso usamos o some antes dele, mas veremos isso com mais calma em outros textos."
+      },
+      {
+        "en": "might be a good idea.",
+        "pt": "pode ser uma boa ideia.",
+        "note": ""
+      },
+      {
+        "en": "What do you think?",
+        "pt": "O que você acha?",
+        "note": ""
+      },
+      {
+        "en": "I am writing them an e-mail",
+        "pt": "Eu estou escrevendo um e-mail para eles",
+        "note": "percebam que a ordem dos objetos (palavras que vem depois do verbo e complementam seu sentido) é um pouco diferente do português."
+      },
+      {
+        "en": "with some questions:",
+        "pt": "com algumas perguntas:",
+        "note": ""
+      },
+      {
+        "en": "How much does it cost?",
+        "pt": "Quanto custa?",
+        "note": ""
+      },
+      {
+        "en": "How long does it take?",
+        "pt": "Quanto tempo leva?",
+        "note": ""
+      },
+      {
+        "en": "What products do we need to buy?",
+        "pt": "Que produtos nós precisamos comprar?",
+        "note": ""
+      }
+    ],
+    "focus": "Neste texto, revisamos a estrutura de perguntas com os auxiliares DO/DOES e alguns usos do ING.",
+    "id": 69,
+    "slug": "what-do-you-think",
+    "url": "https://www.mairovergara.com/textos-com-audio-069-what-do-you-think/"
+  },
+  {
+    "titleEn": "Morning routine",
+    "titlePt": "Rotina matinal",
+    "fullEn": "It’s 7 o’clock! Wake up! Now brush your teeth, comb your hair and get dressed. Make your bed. Now eat your breakfast. We are out of cereal, eat the toast. Put the dishes in the sink, please. And put the milk in the fridge. Take your backpack. Where is your backpack? Oh, find it now! Check it to see if you have everything you need. Ok, now go. Take care, ok? Have a great day at school. And eat your apple, not just the cookies.",
+    "fullPt": "São sete horas! Acorde! Agora escove os dentes, penteie seu cabelo e vista-se. Arrume sua cama. Agora coma seu café da manhã. Estamos sem cereal, coma torrada. Coloque a louça na pia, por favor. E coloque o leite na geladeira. Pegue sua mochila. Onde está sua mochila? Ah, encontre ela agora! Veja se você tem tudo o que precisa. Ok, agora vá. Se cuide, ok? Tenha um ótimo dia na escola. E coma sua maçã, não só os biscoitos.",
+    "pairs": [
+      {
+        "en": "It’s 7 o’clock!",
+        "pt": "São sete horas!",
+        "note": "usamos o’clock quando falamos uma hora exata: It’s 4 o’clock (são 4 horas); It’s 10 o’clock (São 10 horas)."
+      },
+      {
+        "en": "Wake up!",
+        "pt": "Acorde!",
+        "note": "wake up é um phrasal verb, ou seja, um verbo formado por duas ou mais partes."
+      },
+      {
+        "en": "Now brush your teeth,",
+        "pt": "Agora escove os dentes,",
+        "note": ""
+      },
+      {
+        "en": "comb your hair",
+        "pt": "penteie seu cabelo",
+        "note": ""
+      },
+      {
+        "en": "and get dressed.",
+        "pt": "e vista-se.",
+        "note": "to get dressed é se vestir."
+      },
+      {
+        "en": "Make your bed.",
+        "pt": "Arrume sua cama.",
+        "note": "para falar arrumar a cama usamos o verbo make."
+      },
+      {
+        "en": "Now eat your breakfast.",
+        "pt": "Agora coma seu café da manhã.",
+        "note": ""
+      },
+      {
+        "en": "We are out of cereal,",
+        "pt": "Estamos sem cereal,",
+        "note": "to be out of (something) é estar sem (alguma coisa). We are out of toilet paper = Estamos sem papel higiênico."
+      },
+      {
+        "en": "eat the toast.",
+        "pt": "coma a torrada.",
+        "note": ""
+      },
+      {
+        "en": "Put the dishes in the sink, please.",
+        "pt": "Coloque a louça na pia, por favor.",
+        "note": ""
+      },
+      {
+        "en": "And put the milk in the fridge.",
+        "pt": "E coloque o leite na geladeira.",
+        "note": ""
+      },
+      {
+        "en": "Take your backpack.",
+        "pt": "Pegue sua mochila.",
+        "note": ""
+      },
+      {
+        "en": "Where is your backpack?",
+        "pt": "Onde está sua mochila?",
+        "note": ""
+      },
+      {
+        "en": "Oh, find it now!",
+        "pt": "Ah, encontre ela agora.",
+        "note": ""
+      },
+      {
+        "en": "Check it to see if you have",
+        "pt": "Veja se você tem",
+        "note": ""
+      },
+      {
+        "en": "everything you need.",
+        "pt": "tudo o que você precisa.",
+        "note": ""
+      },
+      {
+        "en": "Ok, now go.",
+        "pt": "Ok, agora vá.",
+        "note": ""
+      },
+      {
+        "en": "Take care, ok?",
+        "pt": "Se cuide, ok?",
+        "note": ""
+      },
+      {
+        "en": "Have a great day at school.",
+        "pt": "Tenha um ótimo dia na escola.",
+        "note": ""
+      },
+      {
+        "en": "And eat your apple, not just the cookies.",
+        "pt": "E coma a sua maçã, não só os biscoitos.",
+        "note": ""
+      }
+    ],
+    "focus": "O foco do texto é o IMPERATIVO, ou seja, como mandar ou pedir que alguém faça alguma coisa.",
+    "id": 70,
+    "slug": "morning-routine",
+    "url": "https://www.mairovergara.com/textos-com-audio-070-morning-routine/"
+  },
+  {
+    "titleEn": "Happiness",
+    "titlePt": "Felicidade",
+    "fullEn": "I am here to talk about happiness. I am not a guru, but I have some ideas. In order to be happy, do not waste your energy with petty fights. Do not waste your time with complaints. Do not overthink. Do not worry too much. Do not compare yourself to other people. Do not let your fears take the best of you. Do not let other people’s opinions stop you from pursuing your goals. Do not forget to sleep well. Do not forget to eat fruit and vegetables. Do not forget to drink lots of water. Never forget that you are a great person!",
+    "fullPt": "Estou aqui para falar sobre felicidade. Não sou um guru, mas eu tenho algumas ideias. Para ser feliz, não desperdice sua energia com brigas fúteis. Não desperdice seu tempo com reclamações. Não pense demais. Não se preocupe demais. Não se compare a outras pessoas. Não deixe que seus medos levem a melhor sobre você. Não deixe as opiniões das outras pessoas impedirem você de ir atrás de seus objetivos. Não se esqueça de dormir bem. Não se esqueça de comer frutas e verduras. Não se esqueça de beber muita água. Nunca esqueça que você é uma ótima pessoa!",
+    "pairs": [
+      {
+        "en": "I am here to talk about happiness.",
+        "pt": "Eu estou aqui para falar sobre felicidade.",
+        "note": ""
+      },
+      {
+        "en": "I am not a guru,",
+        "pt": "Eu não sou um guru,",
+        "note": ""
+      },
+      {
+        "en": "but I have some ideas.",
+        "pt": "mas eu tenho algumas ideias.",
+        "note": ""
+      },
+      {
+        "en": "In order to be happy,",
+        "pt": "Para ser feliz,",
+        "note": "usamos in order to para indicar que algo é necessário para se alcançar um objetivo. Por exemplo: In order to succeed, companies have to sell their products at competitive prices = Para ter sucesso, as empresas têm de vender seus produtos a preços competitivos."
+      },
+      {
+        "en": "do not waste your energy with petty fights.",
+        "pt": "não desperdice sua energia com brigas fúteis.",
+        "note": ""
+      },
+      {
+        "en": "Do not waste your time with complaints.",
+        "pt": "Não desperdice seu tempo com reclamações.",
+        "note": ""
+      },
+      {
+        "en": "Do not overthink.",
+        "pt": "Não pense demais.",
+        "note": "podemos adicionar over a uma palavra para dar o sentido de demais. Por exemplo: overeat = comer demais; overdressed = com roupas formais demais para a ocasião."
+      },
+      {
+        "en": "Do not worry too much.",
+        "pt": "Não se preocupe demais.",
+        "note": ""
+      },
+      {
+        "en": "Do not compare yourself to other people.",
+        "pt": "Não se compare a outras pessoas.",
+        "note": ""
+      },
+      {
+        "en": "Do not let your fears take the best of you.",
+        "pt": "Não deixe que seus medos levem a melhor sobre você.",
+        "note": "quando alguma coisa takes the best of alguma pessoa, esta coisa vence ou leva a melhor sobre essa pessoa."
+      },
+      {
+        "en": "Do not let other people’s opinions stop you",
+        "pt": "Não deixe as opiniões das outras pessoas impedirem você",
+        "note": ""
+      },
+      {
+        "en": "from pursuing your goals.",
+        "pt": "de ir atrás de seus objetivos.",
+        "note": "to stop someone from doing something é impedir alguém de fazer alguma coisa."
+      },
+      {
+        "en": "Do not forget to sleep well.",
+        "pt": "Não se esqueça de dormir bem.",
+        "note": ""
+      },
+      {
+        "en": "Do not forget to eat fruit and vegetables.",
+        "pt": "Não se esqueça de comer frutas e verduras.",
+        "note": ""
+      },
+      {
+        "en": "Do not forget to drink lots of water.",
+        "pt": "Não se esqueça de beber muita água.",
+        "note": ""
+      },
+      {
+        "en": "Never forget that you are a great person!",
+        "pt": "Nunca esqueça que você é uma ótima pessoa!",
+        "note": ""
+      }
+    ],
+    "focus": "O foco deste texto é como dizer para alguém não fazer alguma coisa.",
+    "id": 71,
+    "slug": "happiness",
+    "url": "https://www.mairovergara.com/textos-com-audio-071-happiness/"
+  },
+  {
+    "titleEn": "A very nice hotel",
+    "titlePt": "Um hotel muito bom",
+    "fullEn": "Dear mom and dad. Sarah and I are having lots of fun here! The hotel is great. There is a huge swimming pool, and there are two tennis courts. There are three restaurants, and there is a coffee shop. There is a gift shop too, but everything is too expensive. In our room there is a huge TV. There is a coffee maker, and there is also a minibar. There are two very comfortable beds and two very comfortable chairs. And there are two girls from Australia in the room next door. They are really nice!",
+    "fullPt": "Queridos pai e mãe, Sarah e eu estamos nos divertindo muito aqui! O hotel é ótimo. Tem uma piscina enorme, e tem duas quadras de tênis. Tem três restaurantes, e tem uma cafeteria. Tem uma loja de presentes também, mas tudo é caro demais. No nosso quarto tem uma TV enorme. Tem uma cafeteira, e tem também um frigobar. Tem duas camas muito confortáveis e duas cadeiras muito confortáveis. E tem duas garotas da Austrália no quarto ao lado. Elas são muito legais!",
+    "pairs": [
+      {
+        "en": "Dear mom and dad,",
+        "pt": "Queridos mãe e pai,",
+        "note": ""
+      },
+      {
+        "en": "Sarah and I are having lots of fun here!",
+        "pt": "Sarah e eu estamos nos divertindo muito aqui!",
+        "note": "to have fun é se divertir; lots of é usado para dar ênfase, no sentido de muito/muita."
+      },
+      {
+        "en": "The hotel is great.",
+        "pt": "O hotel é ótimo.",
+        "note": ""
+      },
+      {
+        "en": "There is a huge swimming pool,",
+        "pt": "Tem uma piscina enorme,",
+        "note": "there is tem o sentido de haver, existir, ter (não como posse, mas como haver), e é usado quando falamos de somente uma coisa ou pessoa. Este é o foco do texto, então há mais informações nas notas expandidas."
+      },
+      {
+        "en": "and there are two tennis courts.",
+        "pt": "e tem duas quadras de tênis.",
+        "note": "there are tem o sentido de haver, existir, ter (não como posse, mas como haver), e é usado quando falamos de duas ou mais coisas. Mais informações nas notas expandidas."
+      },
+      {
+        "en": "There are three restaurants,",
+        "pt": "Tem três restaurantes,",
+        "note": ""
+      },
+      {
+        "en": "and there is a coffee shop.",
+        "pt": "e tem uma cafeteria.",
+        "note": ""
+      },
+      {
+        "en": "There is a gift shop too,",
+        "pt": "Tem uma loja de presentes também,",
+        "note": ""
+      },
+      {
+        "en": "but everything is too expensive.",
+        "pt": "mas tudo é caro demais.",
+        "note": ""
+      },
+      {
+        "en": "In our room there is a huge TV.",
+        "pt": "No nosso quarto tem uma TV enorme.",
+        "note": ""
+      },
+      {
+        "en": "There is a coffee maker,",
+        "pt": "Tem uma cafeteira,",
+        "note": ""
+      },
+      {
+        "en": "and there is also a minibar.",
+        "pt": "e tem também um frigobar.",
+        "note": ""
+      },
+      {
+        "en": "There are two very comfortable beds",
+        "pt": "Tem duas camas muito confortáveis",
+        "note": ""
+      },
+      {
+        "en": "and two very comfortable chairs.",
+        "pt": "e duas cadeiras muito confortáveis.",
+        "note": ""
+      },
+      {
+        "en": "And there are two girls from Australia",
+        "pt": "E tem duas garotas da Austrália",
+        "note": ""
+      },
+      {
+        "en": "in the room next door.",
+        "pt": "no quarto ao lado.",
+        "note": ""
+      },
+      {
+        "en": "They are really nice!",
+        "pt": "Elas são muito legais!",
+        "note": "a palavra nice pode ser traduzida de várias formas. Quando usamos nice para descrever alguma coisa, estamos dizendo que essa coisa tem qualidade, é boa ou é agradável. This is a nice restaurant = Este é um bom restaurante; The weather is nice today = O tempo está bem/agradável hoje. Quando usamos nice para descrever uma pessoa, estamos dizendo que ela é legal, simpática. Your sister is very nice = A tua irmã é muito legal."
+      }
+    ],
+    "focus": "",
+    "id": 72,
+    "slug": "a-very-nice-hotel",
+    "url": "https://www.mairovergara.com/textos-com-audio-072-a-very-nice-hotel/"
+  },
+  {
+    "titleEn": "A chilly Saturday",
+    "titlePt": "Um sábado frio",
+    "fullEn": "Today is Saturday. It is sunny and chilly outside. I feel like baking something! Let’s see if I have all the ingredients that I need. There is some milk in the fridge. There is also some butter. There is some flour, and there is some cinnamon. There is some sugar. There is some salt. There is some chocolate powder. And there are some eggs. Great, I can make a chocolate cake!",
+    "fullPt": "Hoje é sábado. Está ensolarado e frio lá fora. Estou com vontade de assar alguma coisa! Vamos ver se eu tenho todos os ingredientes que eu preciso. Tem leite na geladeira. Tem também manteiga. Tem farinha e tem canela. Tem açúcar. Tem sal. Tem chocolate em pó. E tem alguns ovos. Ótimo, eu posso fazer um bolo de chocolate!",
+    "pairs": [
+      {
+        "en": "Today is Saturday.",
+        "pt": "Hoje é sábado.",
+        "note": "lembrando que em inglês sempre escrevemos os dias da semana com letra maiúscula."
+      },
+      {
+        "en": "It is sunny and chilly outside.",
+        "pt": "Está ensolarado e frio lá fora.",
+        "note": "It’s é a contração de It is. Lembrando que precisamos do IT em frases como Está chovendo (It is raining) e Está quente hoje (It’s hot today). E, sim, cold também significa frio, poderíamos também dizer It’s cold outside (Está frio lá fora)."
+      },
+      {
+        "en": "I feel like baking something!",
+        "pt": "Estou com vontade de assar alguma coisa!",
+        "note": "to bake é preparar algo no forno, e usamos bake quando falamos sobre fazer um bolo, assar um pão etc. To feel like doing something é estar com vontade de fazer algo. O verbo que vier depois de like precisa de ING: I feel like celebrating = Estou com vontade de celebrar."
+      },
+      {
+        "en": "Let’s see if I have",
+        "pt": "Vamos ver se eu tenho",
+        "note": ""
+      },
+      {
+        "en": "all the ingredients that I need.",
+        "pt": "todos os ingredientes que eu preciso.",
+        "note": ""
+      },
+      {
+        "en": "There is some milk in the fridge.",
+        "pt": "Tem leite na geladeira.",
+        "note": "a palavra some tem, entre seus sentidos, o de uma quantidade não especificada de alguma coisa. Geralmente usamos com palavras incontáveis, como é o caso de milk. Este é o foco deste texto, então há mais informações nas notas expandidas."
+      },
+      {
+        "en": "There is also some butter.",
+        "pt": "Tem também manteiga.",
+        "note": ""
+      },
+      {
+        "en": "There is some flour,",
+        "pt": "Tem farinha,",
+        "note": ""
+      },
+      {
+        "en": "and there is some cinnamon.",
+        "pt": "e tem canela.",
+        "note": ""
+      },
+      {
+        "en": "There is some sugar.",
+        "pt": "Tem açúcar.",
+        "note": ""
+      },
+      {
+        "en": "There is some salt.",
+        "pt": "Tem sal.",
+        "note": ""
+      },
+      {
+        "en": "There is some chocolate powder.",
+        "pt": "Tem chocolate em pó.",
+        "note": ""
+      },
+      {
+        "en": "And there are some eggs.",
+        "pt": "E tem alguns ovos.",
+        "note": ""
+      },
+      {
+        "en": "Great, I can make a chocolate cake!",
+        "pt": "Ótimo, eu posso fazer um bolo de chocolate!",
+        "note": ""
+      }
+    ],
+    "focus": "",
+    "id": 73,
+    "slug": "a-chilly-saturday",
+    "url": "https://www.mairovergara.com/textos-com-audio-073-a-chilly-saturday/"
+  },
+  {
+    "titleEn": "An awful town",
+    "titlePt": "Uma cidade horrível",
+    "fullEn": "Hello, Mark, how are you? I am not OK. I hate this town! There is not a good fast-food restaurant here. There is not a good fancy restaurant either. There is not a theater nearby, and there is not even an art museum in the area. There is not a nice park for me to take Pipo, and there is not a nice pet shop for me to buy his food. And there is not a single cozy coffee shop… I want to go back to New York so badly!",
+    "fullPt": "Olá, Mark, como você está? Eu não estou bem. Eu odeio esta cidadezinha! Não tem um bom restaurante de comida rápida aqui. Não tem um bom restaurante chique também. Não tem um teatro por perto e não tem um museu de arte na área. Não tem um bom parque para eu levar o Pipo, e não tem um bom pet shop para eu comprar a comida dele. E não tem uma única cafeteria aconchegante… Eu quero tanto voltar para Nova Iorque!",
+    "pairs": [
+      {
+        "en": "Hello, Mark, how are you?",
+        "pt": "Olá, Mark, como você está?",
+        "note": ""
+      },
+      {
+        "en": "I am not OK.",
+        "pt": "Eu não estou bem.",
+        "note": ""
+      },
+      {
+        "en": "I hate this town!",
+        "pt": "Eu odeio esta cidadezinha!",
+        "note": "em inglês, existem duas palavras que podemos traduzir como cidade: city e town. Mas elas não são sinônimas! City significa cidade grande, tipo Nova York ou Tóquio. Town é uma cidade menor, que não chega a ser uma metrópole. Aqui traduzimos por cidadezinha para marcar essa diferença."
+      },
+      {
+        "en": "There is not a good fast-food restaurant here.",
+        "pt": "Não tem um bom restaurante de comida rápida aqui.",
+        "note": ""
+      },
+      {
+        "en": "There is not a good fancy restaurant either.",
+        "pt": "Não tem um bom restaurante chique também,",
+        "note": ""
+      },
+      {
+        "en": "There is not a theater nearby,",
+        "pt": "Não tem um teatro por perto,",
+        "note": ""
+      },
+      {
+        "en": "and there is not even an art museum in the area.",
+        "pt": "e não tem nem um museu de arte na área.",
+        "note": "a palavra even tem vários usos, e a tradução vai variar muito dependendo da frase. Podemos marcar, contudo, que There is not even… tem o sentido que Não há nem…"
+      },
+      {
+        "en": "There is not a nice park for me to take Pipo,",
+        "pt": "Não tem um bom parque para eu levar o Pipo,",
+        "note": ""
+      },
+      {
+        "en": "and there is not a nice pet shop for me to buy his food.",
+        "pt": "e não tem um bom pet shop para eu comprar a comida dele.",
+        "note": ""
+      },
+      {
+        "en": "And there is not a single cozy coffee shop…",
+        "pt": "E não tem uma única cafeteria aconchegante…",
+        "note": "single também é uma dessas palavras com vários usos e sentidos."
+      },
+      {
+        "en": "I want to go back to New York so badly!",
+        "pt": "Eu quero tanto voltar para Nova York!",
+        "note": "so badly tem o sentido de tanto. Outro exemplo: They want to win so badly = Eles querem tanto vencer."
+      }
+    ],
+    "focus": "O foco deste texto é a estrutura THERE IS NOT A/AN + substantivo contável.",
+    "id": 74,
+    "slug": "an-awful-town",
+    "url": "https://www.mairovergara.com/textos-com-audio-074-an-awful-town/"
+  },
+  {
+    "titleEn": "No sweets for me today!",
+    "titlePt": "Sem doces para mim hoje!",
+    "fullEn": "I want to eat a homemade apple pie, but unfortunately, I can’t make one today. There is not any sugar. There is not any flour. There is not any milk. There is not any cinnamon. There is not any salt. And there is not any lemon juice. I think I could make a chocolate cake instead… No, wait! There is not any chocolate powder. And, as I said earlier, there is not any flour, and there is not any milk… So no sweets for me today!",
+    "fullPt": "Quero comer uma torta de maçã caseira, mas infelizmente não posso fazer uma hoje. Não tem açúcar. Não tem farinha. Não tem leite algum. Não tem canela. Não tem sal. E não tem nenhum suco de limão. Acho que eu poderia fazer um bolo de chocolate em vez disso… Não, espere! Não tem chocolate em pó. E, como eu disse antes, não tem farinha, e não tem leite… Então sem doces pra mim hoje!",
+    "pairs": [
+      {
+        "en": "I want to eat a homemade apple pie,",
+        "pt": "Quero comer uma torta de maçã caseira",
+        "note": ""
+      },
+      {
+        "en": "but unfortunately,",
+        "pt": "mas infelizmente,",
+        "note": ""
+      },
+      {
+        "en": "I can’t make one today.",
+        "pt": "Não posso fazer uma hoje.",
+        "note": ""
+      },
+      {
+        "en": "There is not any sugar.",
+        "pt": "Não tem açúcar.",
+        "note": "sugar é incontável, para usar a estrutura THERE IS NOT com um substantivo incontável, precisamos também do ANY. Este é o foco deste texto."
+      },
+      {
+        "en": "There is not any flour.",
+        "pt": "Não tem farinha.",
+        "note": ""
+      },
+      {
+        "en": "There is not any milk.",
+        "pt": "Não tem leite.",
+        "note": ""
+      },
+      {
+        "en": "There is not any cinnamon.",
+        "pt": "Não tem canela.",
+        "note": ""
+      },
+      {
+        "en": "There is not any salt.",
+        "pt": "Não tem sal.",
+        "note": ""
+      },
+      {
+        "en": "And there is not any lemon juice.",
+        "pt": "E não tem suco de limão.",
+        "note": ""
+      },
+      {
+        "en": "I think I could make a chocolate cake instead…",
+        "pt": "Acho (que) eu poderia fazer um bolo de chocolate em vez disso…",
+        "note": "instead tem o sentido de em vez de, em vez disso, como alternativa…"
+      },
+      {
+        "en": "No, wait!",
+        "pt": "Não, espere!",
+        "note": ""
+      },
+      {
+        "en": "There is not any chocolate powder.",
+        "pt": "Não tem chocolate em pó.",
+        "note": ""
+      },
+      {
+        "en": "And, as I said earlier, there is not any flour,",
+        "pt": "E, como eu disse antes, não tem farinha,",
+        "note": "aqui estamos usando o verbo to say (dizer) no passado. Mas isso é algo que veremos com detalhes no futuro."
+      },
+      {
+        "en": "and there is not any milk…",
+        "pt": "e não tem leite…",
+        "note": ""
+      },
+      {
+        "en": "So no sweets for me today!",
+        "pt": "Então sem doces para mim hoje!",
+        "note": ""
+      }
+    ],
+    "focus": "O foco deste texto é a estrutura THERE IS NOT ANY + substantivo incontável.",
+    "id": 75,
+    "slug": "no-sweets-for-me-today",
+    "url": "https://www.mairovergara.com/textos-com-audio-075-no-sweets-for-me-today/"
+  },
+  {
+    "titleEn": "Pasta or pizza?",
+    "titlePt": "Massa ou pizza?",
+    "fullEn": "I am craving some pasta! Let’s see, this recipe sounds great. It is called “Creamy mushroom pasta”. The ingredients are: olive oil, butter, one onion, one garlic clove, white wine, cream, one lemon, cheese, and, of course, pasta and mushrooms. Let me check in the kitchen. Well, there is no olive oil; there is no butter; there is no onion; there is no garlic; there is no wine; there is no cream; there is no lemon; there is no cheese; there are no mushrooms; and there is no pasta. I think I am just ordering a pizza…",
+    "fullPt": "Estou com muita vontade de comer massa! Vamos ver, esta receita parece ótima. Chama-se “massa cremosa com cogumelos”. Os ingredientes são: azeite, manteiga, uma cebola, um dente de alho, vinho branco, creme de leite, um limão, queijo e, claro, massa e cogumelos. Deixe-me verificar na cozinha. Bem, não tem azeite; não tem manteiga; não tem cebola; não tem alho; não tem vinho; não tem creme; não tem limão; não tem queijo; não tem cogumelos; e não tem massa. Acho que vou só pedir uma pizza…",
+    "pairs": [
+      {
+        "en": "I am craving some pasta!",
+        "pt": "Estou com muita vontade de (comer) massa!",
+        "note": "o verbo “to crave” tem o sentido de “ter muita vontade de alguma coisa”. Usamos “some” antes de “pasta” porque pasta é incontável (nos textos anteriores falamos mais sobre isso)."
+      },
+      {
+        "en": "Let’s see, this recipe sounds great.",
+        "pt": "Vamos ver, esta receita parece ótima.",
+        "note": "usamos “to sound” para dizer que algo parece bom, legal, interessante, difícil… Por exemplo: It sounds easy = Parece fácil."
+      },
+      {
+        "en": "It is called “Creamy mushroom pasta”.",
+        "pt": "Chama-se “Massa cremosa com cogumelos”.",
+        "note": "“to be called” é “chamar-se”. Por exemplo: My sister is called Anna = Minha irmã se chama Anna. Aqui temos o IT porque estamos nos referindo a uma coisa inanimada."
+      },
+      {
+        "en": "The ingredients are: olive oil, butter,",
+        "pt": "Os ingredientes são: azeite, manteiga,",
+        "note": ""
+      },
+      {
+        "en": "one onion, one garlic clove,",
+        "pt": "uma cebola, um dente de alho,",
+        "note": ""
+      },
+      {
+        "en": "white wine, cream, one lemon, cheese,",
+        "pt": "vinho branco, creme de leite, um limão, queijo,",
+        "note": ""
+      },
+      {
+        "en": "and, of course, pasta and mushrooms.",
+        "pt": "e, claro, massa e cogumelos.",
+        "note": ""
+      },
+      {
+        "en": "Let me check in the kitchen.",
+        "pt": "Deixe-me verificar na cozinha.",
+        "note": ""
+      },
+      {
+        "en": "Well, there is no olive oil;",
+        "pt": "Bem, não tem azeite;",
+        "note": "para dizer que não tem alguma coisa, podemos usar a estrutura “there is no”. Este é o foco deste texto."
+      },
+      {
+        "en": "there is no butter;",
+        "pt": "não tem manteiga;",
+        "note": ""
+      },
+      {
+        "en": "there is no onion;",
+        "pt": "não tem cebola;",
+        "note": ""
+      },
+      {
+        "en": "there is no garlic;",
+        "pt": "não tem alho;",
+        "note": ""
+      },
+      {
+        "en": "there is no wine;",
+        "pt": "não tem vinho;",
+        "note": ""
+      },
+      {
+        "en": "there is no cream;",
+        "pt": "não tem creme;",
+        "note": ""
+      },
+      {
+        "en": "there is no lemon;",
+        "pt": "não tem limão;",
+        "note": ""
+      },
+      {
+        "en": "there is no cheese;",
+        "pt": "não tem queijo;",
+        "note": ""
+      },
+      {
+        "en": "there are no mushrooms;",
+        "pt": "não tem cogumelos;",
+        "note": ""
+      },
+      {
+        "en": "and there is no pasta.",
+        "pt": "e não tem massa.",
+        "note": ""
+      },
+      {
+        "en": "I think I am just ordering a pizza…",
+        "pt": "Acho (que) vou só pedir uma pizza…",
+        "note": "lembrando que o “que” (“that”) pode ser omitido em algumas frases, como do tipo “Eu acho que” (“I think that”). E que podemos usar a estrutura TO BE + VERBO ING para falarmos sobre o futuro próximo: I am traveling this weekend = Vou viajar este fim de semana."
+      }
+    ],
+    "focus": "",
+    "id": 76,
+    "slug": "pasta-or-pizza",
+    "url": "https://www.mairovergara.com/textos-com-audio-076-pasta-or-pizza/"
+  },
+  {
+    "titleEn": "Fruit or chocolate?",
+    "titlePt": "Fruta ou chocolate?",
+    "fullEn": "I was going to make a fruit salad today, but unfortunately, I could not. There are not any bananas in the house. There are not any apples. There are not any plums. There are not any oranges. There are not any peaches. There are not any melons. There are not any pineapples. There are not any strawberries. There are not any blueberries. I guess I am eating a chocolate bar…",
+    "fullPt": "Eu ia fazer uma salada de frutas hoje, mas infelizmente, não consegui. Não há bananas na casa. Não há maçãs. Não há ameixas. Não há laranjas. Não há pêssegos. Não há melões. Não há abacaxis. Não há morangos. Não há mirtilos. Acho que vou comer uma barra de chocolate…",
+    "pairs": [
+      {
+        "en": "I was going to make a fruit salad today,",
+        "pt": "Eu ia fazer uma salada de frutas hoje,",
+        "note": "estudaremos esta estrutura “I was going to” detalhadamente em um texto futuro."
+      },
+      {
+        "en": "but unfortunately, I could not.",
+        "pt": "mas infelizmente, não consegui.",
+        "note": "estudaremos esta estrutura “I could not” detalhadamente em um texto futuro."
+      },
+      {
+        "en": "There are not any bananas in the house.",
+        "pt": "Não há bananas na casa.",
+        "note": "para falar que não há/não tem alguma coisa no plural, usamos a estrutura “there are not any”. Este é o foco deste texto."
+      },
+      {
+        "en": "There are not any apples.",
+        "pt": "Não há maçãs.",
+        "note": ""
+      },
+      {
+        "en": "There are not any plums.",
+        "pt": "Não há ameixas.",
+        "note": ""
+      },
+      {
+        "en": "There are not any oranges.",
+        "pt": "Não há laranjas.",
+        "note": ""
+      },
+      {
+        "en": "There are not any peaches.",
+        "pt": "Não há pêssegos.",
+        "note": ""
+      },
+      {
+        "en": "There are not any melons.",
+        "pt": "Não há melões.",
+        "note": ""
+      },
+      {
+        "en": "There are not any pineapples.",
+        "pt": "Não há abacaxis.",
+        "note": ""
+      },
+      {
+        "en": "There are not any strawberries.",
+        "pt": "Não há morangos.",
+        "note": ""
+      },
+      {
+        "en": "There are not any blueberries.",
+        "pt": "Não há mirtilos.",
+        "note": ""
+      },
+      {
+        "en": "I guess I am eating a chocolate bar…",
+        "pt": "Acho que vou comer uma barra de chocolate…",
+        "note": "“guess” tem o sentido de “adivinhar, estimar, supor, conjeturar”, e podemos dizer “I guess” no sentido de “Eu acho”."
+      }
+    ],
+    "focus": "",
+    "id": 77,
+    "slug": "fruit-or-chocolate",
+    "url": "https://www.mairovergara.com/textos-com-audio-077-fruit-or-chocolate/"
+  },
+  {
+    "titleEn": "Priorities",
+    "titlePt": "Prioridades",
+    "fullEn": "I am looking for a new place to live. This apartment is ok, but there are no windows in the living room, there are no mirrors in the bathrooms, there are no chairs in the dining room, and there are no cupboards in the kitchen. And I think there are some cockroaches. But the worst thing is there are no grocery stores nearby. That house is also ok, but there are no windows in the kitchen, there are no toilets in the bathrooms, and there are no beds in the bedrooms. And I think there are some rats in the basement. But the worst thing is there are no good restaurants nearby.",
+    "fullPt": "Estou procurando um novo lugar para morar. Este apartamento é aceitável, mas não há janelas na sala de estar, não há espelhos nos banheiros, não há cadeiras na sala de jantar e não há armários na cozinha. E acho que há algumas baratas. Mas o pior é que não há mercadinhos por perto. Aquela casa também é aceitável, mas não há janelas na cozinha, não há vasos sanitários nos banheiros e não há camas nos quartos. E acho que há alguns ratos no porão. Mas o pior é que não há bons restaurantes por perto.",
+    "pairs": [
+      {
+        "en": "I am looking for a new place to live.",
+        "pt": "Estou procurando um novo lugar para morar.",
+        "note": "“To look for” é procurar alguma coisa. I’m looking for my keys = Estou procurando as minhas chaves."
+      },
+      {
+        "en": "This apartment is ok,",
+        "pt": "Este apartamento é aceitável,",
+        "note": "a palavra “ok” tem alguns usos distintos, um deles é o de “aceitável”."
+      },
+      {
+        "en": "but there are no windows in the living room,",
+        "pt": "mas não há janelas na sala de estar,",
+        "note": "Podemos usar “There are no” com palavras no plural para dizer que não há/não tem. Este é o foco deste texto."
+      },
+      {
+        "en": "there are no mirrors in the bathrooms,",
+        "pt": "não há espelhos nos banheiros,",
+        "note": ""
+      },
+      {
+        "en": "there are no chairs in the dining room,",
+        "pt": "não há cadeiras na sala de jantar,",
+        "note": ""
+      },
+      {
+        "en": "and there are no cupboards in the kitchen.",
+        "pt": "e não há armários na cozinha.",
+        "note": ""
+      },
+      {
+        "en": "And I think there are some cockroaches.",
+        "pt": "E acho que há algumas baratas.",
+        "note": ""
+      },
+      {
+        "en": "But the worst thing is",
+        "pt": "Mas o pior é (que)",
+        "note": ""
+      },
+      {
+        "en": "there are no grocery stores nearby.",
+        "pt": "não há mercadinhos por perto.",
+        "note": ""
+      },
+      {
+        "en": "That house is also ok,",
+        "pt": "Aquela casa também é aceitável,",
+        "note": ""
+      },
+      {
+        "en": "but there are no windows in the kitchen,",
+        "pt": "mas não há janelas na cozinha,",
+        "note": ""
+      },
+      {
+        "en": "there are no toilets in the bathrooms,",
+        "pt": "não há vasos sanitários nos banheiros,",
+        "note": ""
+      },
+      {
+        "en": "and there are no beds in the bedrooms.",
+        "pt": "e não há camas nos quartos.",
+        "note": ""
+      },
+      {
+        "en": "And I think there are some rats in the basement.",
+        "pt": "E acho que há alguns ratos no porão.",
+        "note": ""
+      },
+      {
+        "en": "But the worst thing is",
+        "pt": "Mas o pior é (que)",
+        "note": ""
+      },
+      {
+        "en": "there are no good restaurants nearby.",
+        "pt": "não há bons restaurantes por perto.",
+        "note": ""
+      }
+    ],
+    "focus": "",
+    "id": 78,
+    "slug": "priorities",
+    "url": "https://www.mairovergara.com/textos-com-audio-078-priorities/"
+  },
+  {
+    "titleEn": "Please help me!",
+    "titlePt": "Por favor me ajude!",
+    "fullEn": "Ben, I’m at the supermarket and I forgot the shopping list! Please help me! Are there any bananas in the kitchen? Are there any apples? Are there any oranges? Are there any eggs? Are there any chocolate bars? Are there any cereal boxes? Now, please, go to the bathroom and tell me: Are there any soap bars? Are there any shampoo bottles? Are there any toothpaste tubes? Thank you so much!",
+    "fullPt": "Ben, estou no supermercado e esqueci a lista de compras! Por favor me ajude! Tem bananas na cozinha? Tem maçãs? Tem laranjas? Tem ovos? Tem barras de chocolate? Tem caixas de cereais? Agora, por favor, vá ao banheiro e me diga: tem sabonete? Tem frascos de xampu? Tem tubos de pasta de dente? Muito obrigado!",
+    "pairs": [
+      {
+        "en": "Ben, I’m at the supermarket",
+        "pt": "Ben, eu estou no supermercado",
+        "note": ""
+      },
+      {
+        "en": "and I forgot the shopping list!",
+        "pt": "e eu esqueci a lista de compras!",
+        "note": "o tempo passado será estudado em um texto futuro."
+      },
+      {
+        "en": "Please help me!",
+        "pt": "Por favor, me ajude!",
+        "note": ""
+      },
+      {
+        "en": "Are there any bananas in the kitchen?",
+        "pt": "Tem bananas na cozinha?",
+        "note": "Para perguntar se tem/há/existe alguma coisa usando uma palavra no plural (no caso, bananas), usamos a estrutura Are there any. Este é o foco deste texto."
+      },
+      {
+        "en": "Are there any apples?",
+        "pt": "Tem maçãs?",
+        "note": ""
+      },
+      {
+        "en": "Are there any oranges?",
+        "pt": "Tem laranjas?",
+        "note": ""
+      },
+      {
+        "en": "Are there any eggs?",
+        "pt": "Tem ovos?",
+        "note": ""
+      },
+      {
+        "en": "Are there any chocolate bars?",
+        "pt": "Tem barras de chocolate?",
+        "note": ""
+      },
+      {
+        "en": "Are there any cereal boxes?",
+        "pt": "Tem caixas de cereal?",
+        "note": ""
+      },
+      {
+        "en": "Now, please, go to the bathroom and tell me:",
+        "pt": "Agora, por favor, vá ao banheiro e me diga:",
+        "note": ""
+      },
+      {
+        "en": "Are there any soap bars?",
+        "pt": "Tem sabonetes?",
+        "note": ""
+      },
+      {
+        "en": "Are there any shampoo bottles?",
+        "pt": "Tem frascos de xampu?",
+        "note": ""
+      },
+      {
+        "en": "Are there any toothpaste tubes?",
+        "pt": "Tem tubos de pasta de dente?",
+        "note": ""
+      },
+      {
+        "en": "Thank you so much!",
+        "pt": "Muito obrigada!",
+        "note": ""
+      }
+    ],
+    "focus": "",
+    "id": 79,
+    "slug": "please-help-me",
+    "url": "https://www.mairovergara.com/textos-com-audio-079-please-help-me/"
+  },
+  {
+    "titleEn": "I need help again",
+    "titlePt": "Eu preciso de ajuda de novo",
+    "fullEn": "Ben, I’m at the supermarket and I forgot the shopping list again! Please help me! Is there any sugar in the kitchen? Is there any flour? Is there any bread? Is there any rice? Is there any chocolate? Is there any cereal? Now, please, go to the bathroom and tell me: Is there any soap? Is there any shampoo? Is there any toothpaste? Is there any dental floss? Thank you so much – again!",
+    "fullPt": "Ben, estou no supermercado e esqueci a lista de compras de novo! Por favor me ajude! Tem açúcar na cozinha? Tem farinha? Tem pão? Tem arroz? Tem chocolate? Tem cereal? Agora, por favor, vá ao banheiro e me diga: tem sabonete? Tem xampu? Tem pasta de dente? Tem fio dental? Muito obrigado – novamente!",
+    "pairs": [
+      {
+        "en": "Ben, I’m at the supermarket",
+        "pt": "Ben, estou no supermercado",
+        "note": ""
+      },
+      {
+        "en": "and I forgot the shopping list again!",
+        "pt": "e esqueci a lista de compras de novo!",
+        "note": ""
+      },
+      {
+        "en": "Please help me!",
+        "pt": "Por favor, me ajude!",
+        "note": ""
+      },
+      {
+        "en": "Is there any sugar in the kitchen?",
+        "pt": "Tem açúcar na cozinha?",
+        "note": "“sugar” é o que chamamos de uma palavra incontável em inglês. Para perguntar se tem açúcar, precisamos da estrutura “Is there any”. Esse é o foco deste texto."
+      },
+      {
+        "en": "Is there any flour?",
+        "pt": "Tem farinha?",
+        "note": ""
+      },
+      {
+        "en": "Is there any bread?",
+        "pt": "Tem pão?",
+        "note": ""
+      },
+      {
+        "en": "Is there any rice?",
+        "pt": "Tem arroz?",
+        "note": ""
+      },
+      {
+        "en": "Is there any chocolate?",
+        "pt": "Tem chocolate?",
+        "note": ""
+      },
+      {
+        "en": "Is there any cereal?",
+        "pt": "Tem cereal?",
+        "note": ""
+      },
+      {
+        "en": "Now, please, go to the bathroom and tell me:",
+        "pt": "Agora, por favor, vá ao banheiro e me diga:",
+        "note": ""
+      },
+      {
+        "en": "Is there any soap?",
+        "pt": "Tem sabonete?",
+        "note": ""
+      },
+      {
+        "en": "Is there any shampoo?",
+        "pt": "Tem xampu?",
+        "note": ""
+      },
+      {
+        "en": "Is there any toothpaste?",
+        "pt": "Tem pasta de dente?",
+        "note": ""
+      },
+      {
+        "en": "Is there any dental floss?",
+        "pt": "Tem fio dental?",
+        "note": ""
+      },
+      {
+        "en": "Thank you so much – again!",
+        "pt": "Muito obrigada – novamente!",
+        "note": ""
+      }
+    ],
+    "focus": "",
+    "id": 80,
+    "slug": "i-need-help-again",
+    "url": "https://www.mairovergara.com/textos-com-audio-080-i-need-help-again/"
   }
 ];
