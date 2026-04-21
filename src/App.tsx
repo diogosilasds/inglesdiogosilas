@@ -10,7 +10,7 @@ import Trail from "./pages/Trail";
 import TextDetail from "./pages/TextDetail";
 import QuizText from "./pages/QuizText";
 import RandomQuiz from "./pages/RandomQuiz";
-import ProgressDashboard from "./pages/ProgressDashboard";
+
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
