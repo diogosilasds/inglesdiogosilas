@@ -50,8 +50,9 @@ export default function Home() {
       </div>
 
       <div className="mt-6 rounded-2xl bg-card p-4 text-sm text-muted-foreground shadow-card">
-        💡 <strong className="text-foreground">Dica:</strong> abra um texto, leia/ouça, e depois faça o quiz.
-        Você precisa de ≥70% de acertos para desbloquear o próximo na trilha. Precisão geral: <strong>{acc}%</strong>.
+        💡 <strong className="text-foreground">Dica:</strong> abra um texto, leia em colunas ou linha a linha,
+        e depois faça o quiz. Você precisa de ≥70% de acertos para desbloquear o próximo na trilha.
+        Precisão geral: <strong>{acc}%</strong>.
       </div>
     </div>
   );

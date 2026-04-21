@@ -3,18 +3,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import { TEXTS } from "@/data/texts";
 import { generateForText } from "@/features/quiz/engine/quizGenerator";
 import { QuizRunner } from "@/features/quiz/QuizRunner";
-import { useTTS } from "@/features/audio/useTTS";
 
 export default function QuizText() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { hasEnglishVoice, supported } = useTTS();
   const text = TEXTS.find((t) => String(t.id) === String(id));
 
   const questions = useMemo(() => {
     if (!text) return [];
-    return generateForText(text, { audioAvailable: supported && hasEnglishVoice });
-  }, [text, supported, hasEnglishVoice]);
+    return generateForText(text);
+  }, [text]);
 
   if (!text) {
     return <div className="p-6">Texto não encontrado.</div>;

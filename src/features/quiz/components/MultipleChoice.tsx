@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { SpeakButton } from "@/features/audio/SpeakButton";
 import { cn } from "@/lib/utils";
 import type { MultipleChoiceQ } from "../engine/quizGenerator";
 
@@ -35,10 +33,7 @@ export function MultipleChoice({ question, disabled, onAnswer }: Props) {
         <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Qual a tradução?
         </div>
-        <div className="flex items-start gap-3">
-          <p className="text-2xl font-semibold leading-snug">{question.prompt}</p>
-          <SpeakButton text={question.prompt} />
-        </div>
+        <p className="text-2xl font-semibold leading-snug">{question.prompt}</p>
       </div>
       <div className="grid gap-3">
         {question.options.map((opt, idx) => {

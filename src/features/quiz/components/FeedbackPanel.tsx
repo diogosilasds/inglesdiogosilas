@@ -1,6 +1,5 @@
 import { CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SpeakButton } from "@/features/audio/SpeakButton";
 import { cn } from "@/lib/utils";
 import type { Question } from "../engine/quizGenerator";
 
@@ -37,13 +36,8 @@ export function FeedbackPanel({ question, correct, onNext }: Props) {
           </h3>
         </div>
         <div className="rounded-xl bg-card/80 p-3 text-sm">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <p className="font-semibold">{ans.en}</p>
-              <p className="text-muted-foreground">{ans.pt}</p>
-            </div>
-            <SpeakButton text={ans.en} />
-          </div>
+          <p className="font-semibold">{ans.en}</p>
+          <p className="text-muted-foreground">{ans.pt}</p>
           {ans.note && (
             <p className="mt-2 border-t border-border pt-2 text-xs italic text-muted-foreground">
               💡 {ans.note}
