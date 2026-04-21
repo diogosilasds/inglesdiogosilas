@@ -10,7 +10,7 @@ import Trail from "./pages/Trail";
 import TextDetail from "./pages/TextDetail";
 import QuizText from "./pages/QuizText";
 import RandomQuiz from "./pages/RandomQuiz";
-import ProgressDashboard from "./pages/ProgressDashboard";
+
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -27,7 +27,7 @@ const App = () => (
             <Route path="/biblioteca" element={<Library />} />
             <Route path="/trilha" element={<Trail />} />
             <Route path="/texto/:id" element={<TextDetail />} />
-            <Route path="/progresso" element={<ProgressDashboard />} />
+            
             <Route path="/quiz-aleatorio" element={<RandomQuiz />} />
           </Route>
           <Route path="/quiz/:id" element={<QuizText />} />

@@ -1,6 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useProgress } from "@/features/progress/progressStore";
@@ -9,29 +8,24 @@ import { GapFill } from "./components/GapFill";
 import { TranslateWrite } from "./components/TranslateWrite";
 import { WordOrder } from "./components/WordOrder";
 import { FeedbackPanel } from "./components/FeedbackPanel";
+import { QuizSummary, type AnswerLog } from "./components/QuizSummary";
 import type { Question } from "./engine/quizGenerator";
 
 interface QuizSessionProps {
   questions: Question[];
-  textId?: number; // null = random
+  textId?: number; // undefined = random
   nextTextId?: number;
   onExit: () => void;
 }
 
-interface AnswerLog {
-  questionId: string;
-  correct: boolean;
-  pairKey: string;
-}
-
 export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessionProps) {
-  const navigate = useNavigate();
   const { recordSession, recordSingle } = useProgress();
   const [index, setIndex] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false);
   const [lastCorrect, setLastCorrect] = useState(false);
   const [log, setLog] = useState<AnswerLog[]>([]);
-  const [finished, setFinished] = useState<{ correct: number; total: number; earnedXp: number; stars: number; unlocked: boolean } | null>(null);
+  const [finished, setFinished] = useState<{ earnedXp: number; stars: number; unlocked: boolean } | null>(null);
+  const questionStartRef = useRef<number>(Date.now());
 
   const total = questions.length;
   const current = questions[index];
@@ -39,11 +33,12 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
   const handleAnswer = useCallback(
     (correct: boolean) => {
       if (showFeedback || !current) return;
+      const timeMs = Date.now() - questionStartRef.current;
       setLastCorrect(correct);
       setShowFeedback(true);
       setLog((l) => [
         ...l,
-        { questionId: current.id, correct, pairKey: current.pair.en },
+        { questionId: current.id, kind: current.kind, correct, pairKey: current.pair.en, timeMs },
       ]);
       if (textId === undefined) {
         recordSingle(correct);
@@ -59,60 +54,28 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
       if (textId !== undefined) {
         const mistakes = log.filter((l) => !l.correct).map((l) => l.pairKey);
         const r = recordSession(textId, log.length, finalCorrect, mistakes, nextTextId);
-        setFinished({ correct: finalCorrect, total: log.length, earnedXp: r.earnedXp, stars: r.newStars, unlocked: r.unlockedNext });
+        setFinished({ earnedXp: r.earnedXp, stars: r.newStars, unlocked: r.unlockedNext });
       } else {
-        setFinished({ correct: finalCorrect, total: log.length, earnedXp: 0, stars: 0, unlocked: false });
+        setFinished({ earnedXp: 0, stars: 0, unlocked: false });
       }
     } else {
       setIndex((i) => i + 1);
+      questionStartRef.current = Date.now();
     }
   }, [index, total, log, recordSession, textId, nextTextId]);
 
   if (finished) {
-    const ratio = finished.total ? finished.correct / finished.total : 0;
     return (
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 px-4 py-10">
-        <div className="text-6xl">{ratio >= 0.9 ? "🏆" : ratio >= 0.7 ? "🎉" : ratio >= 0.5 ? "👍" : "💪"}</div>
-        <h1 className="text-3xl font-bold">Sessão concluída</h1>
-        <div className="grid w-full grid-cols-3 gap-3">
-          <Stat label="Acertos" value={`${finished.correct}/${finished.total}`} />
-          <Stat label="Precisão" value={`${Math.round(ratio * 100)}%`} />
-          <Stat label="XP" value={`+${finished.earnedXp}`} />
-        </div>
-        {finished.stars > 0 && (
-          <div className="text-2xl">{"⭐".repeat(finished.stars)}{"☆".repeat(3 - finished.stars)}</div>
-        )}
-        {finished.unlocked && nextTextId && (
-          <div className="rounded-xl bg-success-soft px-4 py-2 text-sm text-success">
-            🎁 Texto {String(nextTextId).padStart(3, "0")} desbloqueado!
-          </div>
-        )}
-        {log.some((l) => !l.correct) && (
-          <div className="w-full rounded-2xl bg-card p-4 shadow-card">
-            <h3 className="mb-2 text-sm font-semibold">Frases para revisar</h3>
-            <ul className="space-y-1 text-sm">
-              {log
-                .filter((l) => !l.correct)
-                .map((l, i) => (
-                  <li key={i} className="text-muted-foreground">• {l.pairKey}</li>
-                ))}
-            </ul>
-          </div>
-        )}
-        <div className="flex w-full flex-col gap-2 sm:flex-row">
-          <Button variant="outline" className="flex-1" onClick={onExit}>
-            Sair
-          </Button>
-          <Button className="flex-1 gradient-primary text-primary-foreground" onClick={() => window.location.reload()}>
-            Refazer
-          </Button>
-          {finished.unlocked && nextTextId && (
-            <Button className="flex-1" onClick={() => navigate(`/texto/${nextTextId}`)}>
-              Próximo texto
-            </Button>
-          )}
-        </div>
-      </div>
+      <QuizSummary
+        log={log}
+        questions={questions}
+        earnedXp={finished.earnedXp}
+        stars={finished.stars}
+        unlockedNext={finished.unlocked}
+        nextTextId={nextTextId}
+        onExit={onExit}
+        onRetry={() => window.location.reload()}
+      />
     );
   }
 
@@ -157,15 +120,6 @@ export function QuizRunner({ questions, textId, nextTextId, onExit }: QuizSessio
       </main>
 
       {showFeedback && <FeedbackPanel question={current} correct={lastCorrect} onNext={next} />}
-    </div>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl bg-card p-4 text-center shadow-card">
-      <div className="text-2xl font-bold">{value}</div>
-      <div className="text-xs text-muted-foreground">{label}</div>
     </div>
   );
 }
