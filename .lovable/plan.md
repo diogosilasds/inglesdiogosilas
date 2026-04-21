@@ -1,249 +1,81 @@
-### 1. Stack Tecnológica Recomendada
+Aqui está o plano melhorado e reestruturado, focado em segurança da refatoração e polimento de UI/UX:
 
-Como o app não terá um backend em tempo de execução (dados em build-time e estado no LocalStorage), ele é o candidato perfeito para um **SPA (Single Page Application)** estático.
+Plano de Implementação Aprimorado: Refatoração, Tema "Premium Tech" e Conclusão de Dados
 
-*   **Framework Core:** React + Vite (rápido, leve e ecossistema maduro).
+1. Remoção do Áudio (Safe Deletion & Type Cleanup)
 
-*   **Linguagem:** TypeScript (essencial para tipar as estruturas complexas dos textos, frases e estatísticas).
+O plano de apagar os arquivos e remover imports está correto, mas requer limpeza na fundação.
 
-*   **Gerenciamento de Estado:** Zustand (mais leve e simples que Redux, excelente integração com LocalStorage).
+Deletar arquivos: Apagar pasta src/features/audio e ListenType.tsx.
 
-*   **Roteamento:** React Router DOM.
+Limpeza de Tipos (src/data/types.ts ou similar):
 
-*   **Estilização:** Tailwind CSS (perfeito para o design limpo, mobile-first e componentes arredondados).
+Remover LISTEN_TYPE do Enum/Type literal de QuestionKind.
 
-*   **PWA (Progressive Web App):** Usar o plugin do Vite para PWA (permite "instalar" no celular e usar offline).
+Garantir que a remoção dessa interface não deixe outros componentes acusando erro de tipagem no TypeScript.
 
----
+Proteção de Estado (LocalStorage Migration):
 
-### 2. Arquitetura e Modulação (Estrutura de Pastas)
+Se um usuário pausou um quiz aleatório no meio e uma das próximas questões era do tipo Listen & Type, o app vai quebrar ao carregar a sessão.
 
-Vamos adotar uma arquitetura modular. Em vez de agrupar por "tipo de arquivo" (todos os hooks juntos, todos os componentes juntos), vamos agrupar por **Feature (Funcionalidade)**. Isso torna o código mais previsível.
+Ação: Na inicialização do app (App.tsx ou store do Zustand), criar um verificador rápido. Se a sessão de quiz em andamento contiver LISTEN_TYPE, limpar a sessão ativa (forçar restart da sessão) para evitar crashes de UI. Limpar a chave inativa mv80-tts-rate.
 
-```text
+2. Implementação do Design "Futurista Prata" (Dark/Glassmorphism)
 
-/ 80-textos-app
+O uso de variáveis HSL e remoção do Light Mode é perfeito. Vamos adicionar profundidade visual e animação para sustentar a promessa de um visual "Premium Tech".
 
-├── /scripts                # 1. Scripts de Build-time (Executados via Node)
+CSS Global & Tailwind:
 
-│   ├── scraper.js          # Extrai os textos do site
+Mover as paletas HSL propostas estritamente para o seletor :root no index.css. Isso forçará o tema de forma nativa sem depender de detecção de classes (.dark).
 
-│   └── generate-data.js    # Formata e cospe o JSON/TS na pasta /src/data
+Aplicar cor de fundo bg-background text-foreground diretamente no <body>.
 
-│
+Tipografia e FOUT (Flash of Unstyled Text):
 
-├── /src
+Como importaremos Orbitron/Space Grotesk, adicione font-display: swap no Google Fonts para evitar que a tela pisque enquanto a fonte pesada futurista carrega.
 
-│   ├── /assets             # Ícones, imagens estáticas, sons de acerto/erro
+Efeitos Premium (Glassmorphism & Neon):
 
-│   │
+Adicionar no tailwind.config.ts um padrão de box-shadow customizado, ex: box-shadow: neon: '0 0 24px hsl(var(--primary) / 0.25)'.
 
-│   ├── /components         # 2. UI Compartilhada (Dumb Components)
+Para os cards de exercícios não parecerem blocos achatados, usar: bg-card/70 backdrop-blur-md border border-border/60.
 
-│   │   ├── /ui             # Botões, Cards, Inputs, Modais, Badges
+Acessibilidade (Contraste): Textos secundários em --muted-foreground contra o fundo muito escuro devem respeitar contraste de 4.5:1. As cores de Acerto/Erro (Verde/Vermelho) precisam de leve brilho/luminosidade para ficarem nítidas no dark mode.
 
-│   │   └── /layout         # Header, Footer, BottomNavigation (mobile)
+Microinterações: Adicionar uma classe de transição global nos botões (transition-all duration-300 ease-in-out hover:shadow-neon hover:-translate-y-1).
 
-│   │
+3. Scraping dos Textos #068 ao #080 (Tooling Interno)
 
-│   ├── /config             # 3. Configurações Globais
+Em vez de rodar o script em /tmp, traga o script para o ciclo de vida do repositório para manutenção futura.
 
-│   │   └── constants.ts    # Limiares de acerto (70%), XP por questão, etc.
+Script de Automação: Criar scripts/fetch-missing.mjs (modulo nativo Node) na raiz do projeto.
 
-│   │
+Parse e Limpeza Resiliente:
 
-│   ├── /data               # 4. Dados Estáticos (Gerados pelo script)
+Os sites de blogs costumam variar levemente as tags ao longo dos anos (Mairo Vergara pode ter usado <p><strong> no texto 30 e <p><b> no texto 75).
 
-│   │   ├── texts.ts        # O array com os 80 objetos
+Usar o cheerio no Node. Implementar regras de fallback no regex/parser para capturar a tradução caso o HTML da linha a linha varie.
 
-│   │   └── types.ts        # Interfaces (Text, SentencePair, etc.)
+Validação (Safety Check): Antes do script anexar no texts.ts, ele deve fazer um "Sanity Check": O texto 70 tem conteúdo no campo english? Os pares geraram arrays maiores que 0? Se sim, faz o append via fs.writeFileSync.
 
-│   │
+4. O Footer "Inteligente" Contextual
 
-│   ├── /features           # 5. O Coração do App (Lógica de Negócios separada)
+O Footer tem links muito úteis, mas ele NÃO pode atrapalhar a experiência imersiva ("Foco") de aprendizado.
 
-│   │   │
+Layout: Renderizar dentro de um <LayoutBase>.
 
-│   │   ├── /audio          # Gerenciamento do Web Speech API (TTS)
+Condicional de Visibilidade (Crucial): O Footer não deve aparecer nas rotas de quiz (ex: /quiz/:id, /quiz-aleatorio). Mostrar o footer em telas de exercício gera rolagem indesejada, atrapalha botões "Próximo" fixados no rodapé mobile e polui a interface de estudo.
 
-│   │   │   ├── useTTS.ts   # Hook para tocar, pausar, alterar velocidade
+Ação: Usar o hook useLocation do React Router. Se location.pathname.includes('/quiz'), retorne null no componente Footer.
 
-│   │   │   └── TTSToggle.tsx
+Design do Footer: Adicionar a borda luminosa sutil border-t border-border shadow-[0_-5px_15px_rgba(0,0,0,0.3)] para separá-lo visualmente das listas de textos.
 
-│   │   │
+5. Ajustes Finais e Balanceamento de Gamificação
 
-│   │   ├── /progress       # Lógica de Gamificação e LocalStorage
+A exclusão do "Listen & Type" causa impacto silencioso no jogo.
 
-│   │   │   ├── progressStore.ts # Zustand store sincronizada com LocalStorage
+Rebalanceamento do Quiz: Cada texto gerava ~10-15 questões usando 5 tipos. Agora temos 4 tipos. Em quizGenerator.ts, garanta que a distribuição aleatória continue gerando, no mínimo, 10 questões, redistribuindo o peso entre Múltipla Escolha e Completar Lacuna.
 
-│   │   │   └── progressUtils.ts # Cálculo de XP, verificação de ofensiva (streak)
+Avisos (Tooltips/Onboarding): Aos usuários antigos que abrirem a nova versão, exibir um toast ou pequeno modal na Home: "Bem-vindo à Nova Versão! Focamos agora exclusivamente em leitura, vocabulário e tradução escrita, com um novo visual." (Garante que eles não achem que a função de áudio quebrou e, sim, que foi uma decisão de design).
 
-│   │   │
-
-│   │   ├── /quiz           # Lógica do Quiz e Tipos de Questões
-
-│   │   │   ├── /components # Componentes específicos (MultipleChoice, GapFill...)
-
-│   │   │   ├── /engine     # Lógica pura: gera as questões a partir do texto
-
-│   │   │   └── useQuizSession.ts # Estado efêmero da sessão (vidas, questão atual)
-
-│   │   │
-
-│   │   └── /study          # Visualização e estudo do texto antes do quiz
-
-│   │       ├── TextReader.tsx
-
-│   │       └── LineByLine.tsx
-
-│   │
-
-│   ├── /pages              # 6. Telas/Rotas (Unem as features)
-
-│   │   ├── Home.tsx        # (/)
-
-│   │   ├── Library.tsx     # (/biblioteca)
-
-│   │   ├── Trail.tsx       # (/trilha)
-
-│   │   ├── TextDetail.tsx  # (/texto/:id)
-
-│   │   ├── QuizSession.tsx # (/quiz/:id e /quiz-aleatorio)
-
-│   │   └── Dashboard.tsx   # (/progresso)
-
-│   │
-
-│   ├── /utils              # 7. Funções Utilitárias Globais
-
-│   │   ├── stringUtils.ts  # Normalização de strings (remover acentos, pontuação)
-
-│   │   └── fuzzyMatch.ts   # Algoritmo de Levenshtein para checar tradução escrita
-
-│   │
-
-│   ├── App.tsx             # Setup de Rotas e Providers
-
-│   └── main.tsx            # Ponto de entrada do React
-
-```
-
----
-
-### 3. Detalhamento de Módulos Críticos
-
-#### A. O Gerador de Questões `src/features/quiz/engine/quizGenerator.ts`)
-
-Esta é a parte mais inteligente do app. Em vez de salvar as questões prontas no JSON, o app deve gerá-las **sob demanda** sempre que uma sessão iniciar. Isso garante que o quiz seja sempre um pouco diferente.
-
-*   **Entrada:** Objeto `Text` (contendo os pares de frases EN/PT).
-
-*   **Processo:**
-
-    1. Filtra frases muito curtas ou muito longas.
-
-    2. Sorteia aleatoriamente ~10 pares.
-
-    3. Para cada par, atribui aleatoriamente um dos 5 tipos de questão (Enum: `MULTIPLE_CHOICE`, `GAP_FILL`, etc.).
-
-    4. *Para Múltipla Escolha:* Pega a tradução correta e sorteia 3 traduções falsas de outras frases do *mesmo texto* (para manter o contexto).
-
-    5. *Para Completar Lacuna:* Encontra a palavra mais longa/relevante da frase e a substitui por `___`.
-
-*   **Saída:** Array de objetos `Question`.
-
-#### B. O Motor de Similaridade `src/utils/fuzzyMatch.ts`)
-
-Para o exercício **"Traduzir por escrito"**, o usuário vai errar vírgulas, apóstrofos e letras maiúsculas.
-
-Você precisa de uma função que:
-
-1. Converta as duas strings (resposta do usuário e resposta esperada) para minúsculas.
-
-2. Remova pontuação `,`, `.`, `?`, `!`, `'`).
-
-3. Use o algoritmo de **Distância de Levenshtein** para aceitar a resposta se a precisão for `>= 85%`.
-
-*(Exemplo: Se a resposta é "I like apples" e o usuário digita "i liek apples", o app considera como acerto com um aviso de "quase lá").*
-
-#### C. Gerenciamento de Estado de Progresso `src/features/progress/progressStore.ts`)
-
-Use o middleware `persist` do Zustand. O formato do estado global salvo no navegador deve ser algo como:
-
-```typescript
-
-interface ProgressState {
-
-  global: {
-
-    xp: number;
-
-    streak: number;
-
-    lastActiveDate: string; // Para calcular o streak
-
-    totalAnswered: number;
-
-    totalCorrect: number;
-
-  };
-
-  texts: Record<string, {
-
-    status: 'LOCKED' | 'UNLOCKED' | 'COMPLETED';
-
-    stars: 0 | 1 | 2 | 3;
-
-    highScore: number;
-
-    attempts: number;
-
-    mistakes: Record<string, number>; // ID da frase -> contagem de erros (para revisão)
-
-  }>;
-
-}
-
-```
-
----
-
-### 4. Fluxo de Execução (O Ciclo de Vida do App)
-
-1. **Build-Time (Ocorreu no PC do Dev/Servidor CI):** O `scraper.js` varreu o site, gerou o `texts.ts`. O Vite compila tudo em HTML/JS estático.
-
-2. **First Load:** O usuário abre o app. O Zustand lê o `localStorage`. Se for a primeira vez, o Texto 1 está `UNLOCKED` e o resto `LOCKED`.
-
-3. **Página de Estudo:** Usuário entra no Texto 1. Lê, ouve via TTS gerenciado pelo `useTTS.ts`.
-
-4. **Sessão de Quiz:**
-
-   * Usuário clica em "Começar".
-
-   * O `quizGenerator.ts` gera as 10 questões em milissegundos.
-
-   * O estado local do componente `QuizSession.tsx` assume o controle (controla o índice da questão atual, animações de entrada/saída do framer-motion ou css transitions).
-
-   * A cada resposta, toca um som (Acerto/Erro) e mostra o Bottom Sheet com feedback.
-
-5. **Fim do Quiz:**
-
-   * Uma função consolida os resultados.
-
-   * O `progressStore.ts` é atualizado (Soma XP, atualiza estrelas, desbloqueia o Texto 2 se pontuação > 70%).
-
-   * Salva no LocalStorage automaticamente.
-
----
-
-### 5. Melhorias de Arquitetura e UX Sugeridas
-
-*   **PWA (Progressive Web App):** Como o app não faz requisições externas para funcionar, transformar em PWA é obrigatório. O usuário pode adicionar à tela inicial do celular como um app nativo, e ele funcionará 100% offline (incluindo o TTS de muitos dispositivos modernos).
-
-*   **Tratamento de Erros de Áudio:** O TTS do navegador `window.speechSynthesis`) é notoriamente instável em alguns navegadores mobile (especialmente iOS Safari se o usuário estiver em modo silencioso). Adicione um aviso visual na UI (um ícone de sino cortado) informando ao usuário para aumentar o volume ou que a voz não pôde ser carregada.
-
-*   **"Graceful Degradation" no Áudio:** Se a voz `en-US` não carregar de jeito nenhum, o app deve remover automaticamente as questões do tipo "Listen & type" da sessão gerada, para não travar o progresso do usuário.
-
-*   **Acessibilidade (a11y):** Garanta que os botões do quiz possam ser navegados por `Tab` e respondidos com `Enter` (você já sugeriu atalhos 1-4, o que é excelente).
-
-Com essa arquitetura de arquivos e separação de responsabilidades, você pode começar construindo o app inteiro apenas com Múltipla Escolha e o Texto 1. Depois, basta adicionar os novos tipos de questão no `quizGenerator` sem quebrar o fluxo do aplicativo.
+Ajuste do Header TextDetail: Removido os botões de áudio, certifique-se de centralizar os botões restantes ("Linha a linha" e "Começar Quiz") para evitar que o layout fique "quebrado" ou vazio no lado onde ficavam os ícones de áudio.
