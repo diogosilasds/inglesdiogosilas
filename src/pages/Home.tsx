@@ -3,7 +3,7 @@ import { BookOpen, Map, Shuffle } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-6 pt-6 sm:pt-24">
+    <div className="mx-auto max-w-3xl px-4 pb-6 pt-6">
       <header className="mb-8 border-l-2 border-primary pl-4">
         <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-primary">
           // SYS.MV_80
