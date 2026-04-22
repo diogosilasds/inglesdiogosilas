@@ -32,7 +32,7 @@ export default function Library() {
   }, [texts, filter, query]);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-10 pt-6">
+    <div className="mx-auto w-full max-w-3xl overflow-x-hidden px-4 pb-10 pt-6">
       <header className="mb-6 border-l-2 border-primary pl-4">
         <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-primary">
           // LIBRARY.IDX
@@ -87,13 +87,13 @@ export default function Library() {
               key={t.id}
               to={`/texto/${t.id}`}
               onClick={() => ensureUnlocked(t.id)}
-              className="group relative flex items-center gap-3 border border-border bg-card/60 p-3 backdrop-blur-md transition hover:border-primary hover:shadow-neon"
+              className="group relative flex min-w-0 items-center gap-3 border border-border bg-card/60 p-3 backdrop-blur-md transition hover:border-primary hover:shadow-neon"
             >
               <span className="absolute left-0 top-0 h-px w-6 bg-primary opacity-0 transition-opacity group-hover:opacity-100" />
               <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-border bg-background font-display text-xs font-bold tabular-nums text-primary">
                 {String(t.id).padStart(3, "0")}
               </div>
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0 flex-1 overflow-hidden">
                 <div className="truncate font-medium text-foreground">{t.titleEn}</div>
                 <div className="truncate text-xs text-muted-foreground">{t.titlePt || "—"}</div>
               </div>
