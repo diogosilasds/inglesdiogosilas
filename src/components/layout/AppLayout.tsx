@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Outlet, Link, useLocation } from "react-router-dom";
 import { BookOpen, Home, Map, Shuffle, Menu, X, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,18 @@ export function AppLayout() {
 
   // Close mobile menu on route change
   const closeMenu = () => setOpen(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">
