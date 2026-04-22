@@ -76,10 +76,10 @@ export function AppLayout() {
           </button>
         </div>
 
-        {/* Mobile menu panel */}
+        {/* Mobile fullscreen menu overlay */}
         {open && (
-          <div className="border-t border-border bg-card/95 backdrop-blur md:hidden">
-            <nav className="mx-auto flex max-w-5xl flex-col px-4 py-3">
+          <div className="fixed inset-x-0 bottom-0 top-[57px] z-50 flex flex-col bg-background/98 backdrop-blur-xl md:hidden">
+            <nav className="flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6">
               {items.map(({ to, label, icon: Icon, tag }) => {
                 const active =
                   to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
@@ -90,21 +90,26 @@ export function AppLayout() {
                     end={to === "/"}
                     onClick={closeMenu}
                     className={cn(
-                      "flex items-center justify-between border-l-2 px-3 py-3 font-display text-sm font-semibold uppercase tracking-wider transition",
+                      "group relative flex items-center justify-between border px-4 py-5 font-display text-base font-semibold uppercase tracking-wider transition",
                       active
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
+                        ? "border-primary bg-primary/10 text-primary shadow-neon"
+                        : "border-border bg-card/40 text-muted-foreground hover:border-primary/50 hover:text-foreground",
                     )}
                   >
+                    <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-primary" />
+                    <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-primary" />
                     <span className="flex items-center gap-3">
-                      <Icon className="h-4 w-4" />
+                      <Icon className="h-5 w-5" />
                       {label}
                     </span>
-                    <span className="text-[10px] tracking-[0.2em] opacity-60">/{tag}</span>
+                    <span className="font-mono text-[11px] tracking-[0.2em] text-warning opacity-80">/{tag}</span>
                   </NavLink>
                 );
               })}
             </nav>
+            <div className="border-t border-border px-4 py-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+              // mv_80 :: end_of_menu
+            </div>
           </div>
         )}
       </header>
