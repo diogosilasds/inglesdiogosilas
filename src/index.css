@@ -153,8 +153,47 @@
   .animate-pop-in { animation: pop-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
   .animate-shake { animation: shake 0.4s ease-in-out; }
   .animate-slide-up { animation: slide-up 0.3s ease-out; }
-  .text-glow { text-shadow: 0 0 18px hsl(var(--primary) / 0.55); }
+  .text-glow { text-shadow: 0 0 12px hsl(var(--primary) / 0.45); }
   .transition-base { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  /* Cyber corner brackets */
+  .cyber-corners {
+    position: relative;
+  }
+  .cyber-corners::before,
+  .cyber-corners::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: hsl(var(--primary));
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+  }
+  .cyber-corners::before {
+    top: -1px;
+    left: -1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+  .cyber-corners::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+
+  /* Diagonal hatched pattern */
+  .cyber-hatch {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--primary) / 0.08) 0,
+      hsl(var(--primary) / 0.08) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  }
 }
 
 @keyframes pop-in {
