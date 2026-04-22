@@ -28,11 +28,12 @@ export function TranslateWrite({ question, disabled, onAnswer }: Props) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl bg-card p-6 shadow-card">
-        <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Traduza para o inglês
+      <div className="relative border border-border bg-card/70 p-6 backdrop-blur-md">
+        <span className="absolute left-0 top-0 h-px w-8 bg-primary" />
+        <div className="mb-2 font-display text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
+          // Traduza para o inglês
         </div>
-        <p className="text-2xl font-semibold leading-snug">{question.prompt}</p>
+        <p className="text-2xl font-semibold leading-snug text-foreground">{question.prompt}</p>
       </div>
       <Textarea
         ref={ref}
@@ -47,13 +48,17 @@ export function TranslateWrite({ question, disabled, onAnswer }: Props) {
         autoCorrect="off"
         spellCheck={false}
         rows={3}
-        className="text-lg"
+        className="rounded-none border-border bg-card/60 font-mono text-lg backdrop-blur-md"
       />
-      <div className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">
-          Pequenos erros de digitação são tolerados (≥{Math.round(FUZZY_ACCEPT * 100)}% de similaridade).
+      <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <span className="font-mono text-[11px] text-muted-foreground">
+          // erros pequenos tolerados (≥{Math.round(FUZZY_ACCEPT * 100)}% similaridade)
         </span>
-        <Button onClick={submit} disabled={disabled || !value.trim()}>
+        <Button
+          onClick={submit}
+          disabled={disabled || !value.trim()}
+          className="rounded-none border border-primary bg-primary font-display font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
+        >
           Verificar
         </Button>
       </div>

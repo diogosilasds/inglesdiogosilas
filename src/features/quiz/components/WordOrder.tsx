@@ -40,31 +40,36 @@ export function WordOrder({ question, disabled, onAnswer }: Props) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl bg-card p-6 shadow-card">
-        <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Ordene as palavras
+      <div className="relative border border-border bg-card/70 p-6 backdrop-blur-md">
+        <span className="absolute left-0 top-0 h-px w-8 bg-primary" />
+        <div className="mb-2 font-display text-[10px] font-semibold uppercase tracking-[0.3em] text-primary">
+          // Ordene as palavras
         </div>
-        <p className="text-xl font-semibold leading-snug">{question.prompt}</p>
+        <p className="text-xl font-semibold leading-snug text-foreground">{question.prompt}</p>
       </div>
 
-      <div className="min-h-[80px] rounded-2xl border-2 border-dashed border-border bg-secondary/40 p-3">
+      {/* Picked area */}
+      <div className="cyber-hatch min-h-[80px] border border-dashed border-border bg-background/40 p-3">
         <div className="flex flex-wrap gap-2">
           {picked.map((chip) => (
             <button
               key={chip.id}
               onClick={() => onUnpick(chip)}
               disabled={disabled}
-              className="rounded-lg border-2 border-accent bg-accent-soft px-3 py-2 text-sm font-medium transition hover:bg-accent/20"
+              className="border border-primary bg-primary/15 px-3 py-2 font-mono text-sm font-medium text-foreground transition hover:bg-primary/25"
             >
               {chip.word}
             </button>
           ))}
           {picked.length === 0 && (
-            <span className="self-center text-sm text-muted-foreground">Toque nas palavras abaixo na ordem correta…</span>
+            <span className="self-center font-mono text-xs text-muted-foreground">
+              // toque nas palavras na ordem correta…
+            </span>
           )}
         </div>
       </div>
 
+      {/* Pool */}
       <div className="flex flex-wrap gap-2">
         {pool.map((chip) => (
           <button
@@ -72,7 +77,7 @@ export function WordOrder({ question, disabled, onAnswer }: Props) {
             onClick={() => onPick(chip)}
             disabled={disabled}
             className={cn(
-              "rounded-lg border-2 border-border bg-card px-3 py-2 text-sm font-medium shadow-card transition",
+              "border border-border bg-card/60 px-3 py-2 font-mono text-sm font-medium text-foreground transition",
               "hover:border-primary hover:text-primary",
               disabled && "opacity-60",
             )}
@@ -81,7 +86,6 @@ export function WordOrder({ question, disabled, onAnswer }: Props) {
           </button>
         ))}
       </div>
-
     </div>
   );
 }

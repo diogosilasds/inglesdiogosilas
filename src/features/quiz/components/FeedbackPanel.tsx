@@ -18,29 +18,37 @@ export function FeedbackPanel({ question, correct, onNext }: Props) {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 animate-slide-up rounded-t-3xl border-t-4 p-5 shadow-pop sm:p-6",
-        correct
-          ? "border-success bg-success-soft"
-          : "border-destructive bg-destructive-soft",
+        "fixed inset-x-0 bottom-0 z-40 animate-slide-up border-t-2 bg-background/95 p-5 backdrop-blur-md sm:p-6",
+        correct ? "border-success" : "border-destructive",
       )}
+      style={{
+        boxShadow: correct
+          ? "0 -4px 24px hsl(var(--success) / 0.25)"
+          : "0 -4px 24px hsl(var(--destructive) / 0.25)",
+      }}
     >
       <div className="mx-auto flex max-w-2xl flex-col gap-3">
         <div className="flex items-center gap-3">
           {correct ? (
-            <CheckCircle2 className="h-7 w-7 text-success" />
+            <CheckCircle2 className="h-6 w-6 text-success" />
           ) : (
-            <XCircle className="h-7 w-7 text-destructive" />
+            <XCircle className="h-6 w-6 text-destructive" />
           )}
-          <h3 className={cn("text-xl font-bold", correct ? "text-success" : "text-destructive")}>
-            {correct ? "Boa! 🎉" : "Quase lá!"}
+          <h3
+            className={cn(
+              "font-display text-lg font-bold uppercase tracking-[0.2em]",
+              correct ? "text-success" : "text-destructive",
+            )}
+          >
+            {correct ? "// Correto" : "// Quase lá"}
           </h3>
         </div>
-        <div className="rounded-xl bg-card/80 p-3 text-sm">
-          <p className="font-semibold">{ans.en}</p>
+        <div className="border border-border bg-card/80 p-3 text-sm">
+          <p className="font-medium text-foreground">{ans.en}</p>
           <p className="text-muted-foreground">{ans.pt}</p>
           {ans.note && (
-            <p className="mt-2 border-t border-border pt-2 text-xs italic text-muted-foreground">
-              💡 {ans.note}
+            <p className="mt-2 border-t border-border pt-2 font-mono text-xs italic text-muted-foreground">
+              // {ans.note}
             </p>
           )}
         </div>
@@ -49,11 +57,13 @@ export function FeedbackPanel({ question, correct, onNext }: Props) {
           onClick={onNext}
           autoFocus
           className={cn(
-            "h-12 w-full text-base font-semibold",
-            correct ? "bg-success hover:bg-success/90 text-success-foreground" : "",
+            "h-12 w-full rounded-none border font-display text-base font-bold uppercase tracking-widest",
+            correct
+              ? "border-success bg-success text-success-foreground hover:bg-success/90"
+              : "border-primary bg-primary text-primary-foreground hover:bg-primary/90",
           )}
         >
-          Continuar
+          Continuar ▶
         </Button>
       </div>
     </div>

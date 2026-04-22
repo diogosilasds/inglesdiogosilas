@@ -45,7 +45,7 @@ export default function RandomQuiz() {
     setSelectedTexts((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
 
   return (
-    <div className="mx-auto max-w-2xl px-4 pb-10 pt-6 sm:pt-24">
+    <div className="mx-auto max-w-2xl px-4 pb-10 pt-6">
       <header className="mb-6 border-l-2 border-primary pl-4">
         <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-primary">
           // TRAINING.MODE
