@@ -3,62 +3,91 @@ import { BookOpen, Map, Shuffle } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-6 pt-6">
-      <header className="mb-8 border-l-2 border-primary pl-4">
-        <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-          // SYS.MV_80
-        </p>
-        <h1 className="mt-1 font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-          Aprenda inglês praticando.
+    <div className="mx-auto max-w-4xl px-4 pb-10 pt-8">
+      {/* Editorial hero / front-page lead */}
+      <header className="mb-10 border-b border-foreground/80 pb-8 text-center">
+        <p className="kicker">Edição especial</p>
+        <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+          Aprenda inglês lendo, traduzindo e praticando como um leitor atento.
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Quiz baseado nos textos do Mairo Vergara — para brasileiros que querem destravar o inglês.
+        <p className="mx-auto mt-5 max-w-2xl text-base italic text-muted-foreground sm:text-lg">
+          Quiz baseado nos 80 textos com áudio do Mairo Vergara — para brasileiros
+          que querem destravar o inglês com profundidade editorial.
         </p>
+        <div className="mt-5 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+          <span>Por The 80 Texts Times</span>
+          <span className="h-px w-6 bg-border" />
+          <span>Seção: Estudo</span>
+        </div>
       </header>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      {/* Three columns — like NYT front page sections */}
+      <section className="grid gap-6 md:grid-cols-3 md:gap-8">
         <BigCard
           to="/biblioteca"
-          icon={<BookOpen className="h-7 w-7" />}
+          icon={<BookOpen className="h-5 w-5" />}
+          kicker="Acervo"
           title="Biblioteca"
-          desc="Veja todos os textos disponíveis"
-          tag="01"
+          desc="Veja todos os 80 textos disponíveis para leitura e prática."
+          n="01"
         />
         <BigCard
           to="/trilha"
-          icon={<Map className="h-7 w-7" />}
+          icon={<Map className="h-5 w-5" />}
+          kicker="Progresso"
           title="Trilha"
-          desc="Marque seu progresso"
-          tag="02"
+          desc="Marque quais textos você já dominou ao longo da sua jornada."
+          n="02"
         />
         <BigCard
           to="/quiz-aleatorio"
-          icon={<Shuffle className="h-7 w-7" />}
+          icon={<Shuffle className="h-5 w-5" />}
+          kicker="Prática"
           title="Treino rápido"
-          desc="Questões aleatórias"
-          tag="03"
+          desc="Questões aleatórias para fixar vocabulário e tradução."
+          n="03"
         />
-      </div>
+      </section>
     </div>
   );
 }
 
 function BigCard({
-  to, icon, title, desc, tag,
-}: { to: string; icon: React.ReactNode; title: string; desc: string; tag: string }) {
+  to,
+  icon,
+  kicker,
+  title,
+  desc,
+  n,
+}: {
+  to: string;
+  icon: React.ReactNode;
+  kicker: string;
+  title: string;
+  desc: string;
+  n: string;
+}) {
   return (
     <Link
       to={to}
-      className="group relative overflow-hidden rounded-md border border-border bg-card p-5 text-foreground shadow-card transition hover:border-primary hover:shadow-neon"
+      className="group relative flex flex-col border-t-2 border-foreground bg-card p-5 text-foreground shadow-card transition hover:shadow-pop"
     >
-      <span className="absolute right-3 top-3 font-display text-[10px] font-semibold tracking-[0.2em] text-muted-foreground">
-        /{tag}
+      <div className="flex items-center justify-between">
+        <p className="kicker">{kicker}</p>
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+          № {n}
+        </span>
+      </div>
+      <h3 className="mt-3 font-display text-2xl font-bold leading-tight group-hover:text-accent">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm italic leading-relaxed text-foreground/75">
+        {desc}
+      </p>
+      <span className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-foreground">
+        {icon}
+        Ler mais →
       </span>
-      <span className="absolute left-0 top-0 h-px w-8 bg-primary" />
-      <span className="absolute bottom-0 right-0 h-8 w-px bg-primary/60" />
-      <div className="mb-3 text-primary">{icon}</div>
-      <h3 className="font-display text-lg font-bold uppercase tracking-wide">{title}</h3>
-      <p className="text-sm text-muted-foreground">{desc}</p>
     </Link>
   );
 }
