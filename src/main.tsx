@@ -2,8 +2,8 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
-// Force dark mode (single futurist theme)
-document.documentElement.classList.add("dark");
+// Editorial light theme — ensure dark class is removed
+document.documentElement.classList.remove("dark");
 
 // Cleanup obsolete TTS storage from previous version
 try {

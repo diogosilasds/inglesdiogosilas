@@ -2,87 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium futurist tech fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* Editorial typography — New York Times inspired */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Libre+Franklin:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ====================================================
-   80 Textos – Quiz de Inglês
-   Dark · Silver · Futurist · Premium Tech
+   80 Textos — Quiz de Inglês
+   Editorial · Light · Premium · "New York Times" style
    All colors are HSL.
    ==================================================== */
 
 @layer base {
   :root {
-    /* Deep pure black canvas */
-    --background: 0 0% 3%;
-    --foreground: 140 15% 92%;
+    /* Newsprint cream */
+    --background: 40 30% 97%;
+    --foreground: 0 0% 8%;
 
-    /* Near-black surfaces */
-    --card: 140 10% 7%;
-    --card-foreground: 140 15% 94%;
+    /* Paper white surfaces */
+    --card: 40 25% 99%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 140 10% 6%;
-    --popover-foreground: 140 15% 94%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Primary — neon green */
-    --primary: 140 85% 50%;
-    --primary-foreground: 0 0% 4%;
-    --primary-soft: 140 50% 12%;
+    /* Primary — deep editorial black (ink) */
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 30% 98%;
+    --primary-soft: 40 12% 90%;
 
-    /* Secondary — graphite green */
-    --secondary: 140 8% 14%;
-    --secondary-foreground: 140 15% 92%;
+    /* Secondary — warm paper gray */
+    --secondary: 40 12% 92%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 140 6% 11%;
-    --muted-foreground: 140 5% 60%;
+    --muted: 40 14% 94%;
+    --muted-foreground: 0 0% 38%;
 
-    /* Accent — electric blue (detail) */
-    --accent: 210 100% 60%;
-    --accent-foreground: 0 0% 4%;
-    --accent-soft: 210 60% 14%;
+    /* Accent — NYT-ish editorial red */
+    --accent: 358 70% 42%;
+    --accent-foreground: 40 30% 98%;
+    --accent-soft: 358 60% 94%;
 
-    /* Destructive — neon coral */
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --destructive-soft: 0 50% 16%;
+    /* Destructive — same red family */
+    --destructive: 358 72% 45%;
+    --destructive-foreground: 40 30% 98%;
+    --destructive-soft: 358 60% 94%;
 
-    /* Success — same as primary green */
-    --success: 140 85% 50%;
-    --success-foreground: 0 0% 4%;
-    --success-soft: 140 50% 14%;
+    /* Success — muted forest green */
+    --success: 150 38% 32%;
+    --success-foreground: 40 30% 98%;
+    --success-soft: 150 30% 92%;
 
-    /* Warning — vivid yellow (detail) */
-    --warning: 52 100% 55%;
-    --warning-foreground: 0 0% 6%;
-    --warning-soft: 52 60% 14%;
+    /* Warning — antique gold */
+    --warning: 38 70% 45%;
+    --warning-foreground: 40 30% 98%;
+    --warning-soft: 38 60% 92%;
 
-    /* Borders — subtle green-tinged */
-    --border: 140 10% 18%;
-    --input: 140 10% 18%;
-    --ring: 140 85% 50%;
+    /* Hairline borders */
+    --border: 30 12% 84%;
+    --input: 30 12% 84%;
+    --ring: 0 0% 20%;
 
     --radius: 0.125rem;
 
-    /* Monochrome dark surfaces */
-    --gradient-primary: linear-gradient(135deg, hsl(140 12% 14%), hsl(140 10% 6%));
-    --gradient-accent: linear-gradient(135deg, hsl(140 12% 14%), hsl(140 10% 6%));
-    --gradient-warm: linear-gradient(135deg, hsl(140 12% 14%), hsl(140 10% 6%));
-    --gradient-silver: linear-gradient(135deg, hsl(140 10% 18%), hsl(140 10% 6%));
+    /* Subtle paper-ish surfaces (no flashy gradients) */
+    --gradient-primary: linear-gradient(180deg, hsl(40 25% 99%), hsl(40 20% 95%));
+    --gradient-accent: linear-gradient(180deg, hsl(40 25% 99%), hsl(40 20% 95%));
+    --gradient-warm: linear-gradient(180deg, hsl(40 25% 99%), hsl(40 20% 95%));
+    --gradient-silver: linear-gradient(180deg, hsl(40 18% 96%), hsl(40 14% 92%));
 
-    /* Shadows + green glows */
-    --shadow-card: 0 1px 0 hsl(140 30% 40% / 0.08) inset, 0 4px 16px hsl(0 0% 0% / 0.6);
-    --shadow-pop: 0 0 0 1px hsl(140 85% 50% / 0.4), 0 4px 18px hsl(0 0% 0% / 0.7);
-    --shadow-neon: 0 0 16px hsl(140 85% 50% / 0.3), 0 0 0 1px hsl(140 85% 50% / 0.35);
-    --shadow-neon-violet: 0 0 16px hsl(210 100% 60% / 0.25);
+    /* Editorial shadows */
+    --shadow-card: 0 1px 0 hsl(0 0% 0% / 0.04), 0 8px 24px hsl(0 0% 0% / 0.06);
+    --shadow-pop: 0 0 0 1px hsl(0 0% 8% / 0.15), 0 8px 28px hsl(0 0% 0% / 0.08);
+    --shadow-neon: 0 0 0 1px hsl(0 0% 8% / 0.6);
+    --shadow-neon-violet: 0 0 0 1px hsl(358 70% 42% / 0.4);
 
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 140 15% 92%;
-    --sidebar-primary: 140 85% 50%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 140 10% 12%;
-    --sidebar-accent-foreground: 140 15% 92%;
-    --sidebar-border: 140 10% 18%;
-    --sidebar-ring: 140 85% 50%;
+    --sidebar-background: 40 25% 99%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 40 14% 94%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 30 12% 84%;
+    --sidebar-ring: 0 0% 20%;
   }
 }
 
@@ -95,56 +95,59 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-feature-settings: "ss01", "cv11";
-    /* Cyber grid */
-    background-image:
-      linear-gradient(hsl(140 60% 40% / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(140 60% 40% / 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
+    font-family: 'Source Serif 4', 'Georgia', 'Times New Roman', serif;
+    font-feature-settings: "kern", "liga", "onum";
+    background-image: none;
     background-attachment: fixed;
     overflow-x: hidden;
   }
+
+  /* Headlines = Playfair (NYT cheltenham-like) */
   h1, h2, h3, .font-display {
-    font-family: 'Orbitron', 'Space Grotesk', 'Inter', sans-serif;
-    letter-spacing: -0.01em;
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    letter-spacing: -0.015em;
+    color: hsl(var(--foreground));
   }
 
-  /* ============ Custom Scrollbars (cyber) ============ */
+  /* "font-mono" → editorial sans for tags/kicker */
+  .font-mono, code, kbd, samp, pre {
+    font-family: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.65;
+  }
+
+  /* Selection */
+  ::selection {
+    background: hsl(var(--accent) / 0.18);
+    color: hsl(var(--foreground));
+  }
+
+  /* ============ Custom Scrollbars (editorial) ============ */
   /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary) / 0.6) hsl(var(--background));
+    scrollbar-color: hsl(0 0% 20% / 0.5) hsl(var(--background));
   }
   /* Webkit */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
   }
   ::-webkit-scrollbar-track {
     background: hsl(var(--background));
     border-left: 1px solid hsl(var(--border));
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      180deg,
-      hsl(var(--primary) / 0.7),
-      hsl(var(--accent) / 0.7)
-    );
-    border: 2px solid hsl(var(--background));
-    box-shadow:
-      inset 0 0 0 1px hsl(var(--primary) / 0.5),
-      0 0 8px hsl(var(--primary) / 0.4);
+    background: hsl(0 0% 25%);
+    border: 3px solid hsl(var(--background));
+    border-radius: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(
-      180deg,
-      hsl(var(--primary)),
-      hsl(var(--accent))
-    );
-    box-shadow:
-      inset 0 0 0 1px hsl(var(--warning) / 0.5),
-      0 0 12px hsl(var(--primary) / 0.7);
+    background: hsl(var(--accent));
   }
   ::-webkit-scrollbar-corner {
     background: hsl(var(--background));
@@ -161,32 +164,48 @@
   .shadow-neon { box-shadow: var(--shadow-neon); }
   .shadow-neon-violet { box-shadow: var(--shadow-neon-violet); }
 
-  /* Glassmorphism surface */
+  /* "Glass" → simple paper card on light theme */
   .glass {
-    background-color: hsl(var(--card) / 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.7);
-    box-shadow:
-      inset 0 1px 0 hsl(220 30% 60% / 0.12),
-      0 8px 24px hsl(220 60% 2% / 0.5);
+    background-color: hsl(var(--card));
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
   }
 
-  /* Silver hairline border (premium metallic feel) */
   .silver-edge {
     position: relative;
+    border: 1px solid hsl(var(--border));
   }
-  .silver-edge::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, hsl(220 20% 60% / 0.45), hsl(220 20% 30% / 0) 40%, hsl(220 20% 60% / 0.35) 100%);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
+  .silver-edge::before { content: none; }
+
+  /* Editorial kicker label (e.g., "POLITICS") */
+  .kicker {
+    font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: hsl(var(--accent));
+  }
+
+  /* Drop-cap styling utility */
+  .dropcap::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    float: left;
+    font-size: 3.2em;
+    line-height: 0.85;
+    padding: 0.05em 0.08em 0 0;
+    color: hsl(var(--foreground));
+  }
+
+  /* Rule line, NYT section divider */
+  .rule-thin {
+    border-top: 1px solid hsl(var(--border));
+  }
+  .rule-thick {
+    border-top: 2px solid hsl(var(--foreground));
   }
 }
 
@@ -194,10 +213,10 @@
   .animate-pop-in { animation: pop-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
   .animate-shake { animation: shake 0.4s ease-in-out; }
   .animate-slide-up { animation: slide-up 0.3s ease-out; }
-  .text-glow { text-shadow: 0 0 12px hsl(var(--primary) / 0.45); }
+  .text-glow { text-shadow: none; }
   .transition-base { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
-  /* Cyber corner brackets */
+  /* Repurposed: corner brackets become tiny editorial squares */
   .cyber-corners {
     position: relative;
   }
@@ -205,40 +224,34 @@
   .cyber-corners::after {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-color: hsl(var(--primary));
-    border-style: solid;
-    border-width: 0;
+    width: 6px;
+    height: 6px;
+    background: hsl(var(--foreground));
     pointer-events: none;
   }
   .cyber-corners::before {
-    top: -1px;
-    left: -1px;
-    border-top-width: 1px;
-    border-left-width: 1px;
+    top: -3px;
+    left: -3px;
   }
   .cyber-corners::after {
-    bottom: -1px;
-    right: -1px;
-    border-bottom-width: 1px;
-    border-right-width: 1px;
+    bottom: -3px;
+    right: -3px;
   }
 
-  /* Diagonal hatched pattern */
+  /* Repurposed: subtle paper texture */
   .cyber-hatch {
     background-image: repeating-linear-gradient(
       45deg,
-      hsl(var(--primary) / 0.08) 0,
-      hsl(var(--primary) / 0.08) 1px,
+      hsl(0 0% 0% / 0.025) 0,
+      hsl(0 0% 0% / 0.025) 1px,
       transparent 1px,
-      transparent 6px
+      transparent 5px
     );
   }
 }
 
 @keyframes pop-in {
-  0% { transform: scale(0.92); opacity: 0; }
+  0% { transform: scale(0.96); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
 @keyframes shake {
